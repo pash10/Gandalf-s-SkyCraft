@@ -1,0 +1,349 @@
+
+title {
+    color: red
+       
+}
+
+body {
+    color: green;
+    background-color:burlywood;
+    display: flex;
+    justify-content: center;
+    align-items: auto;
+    overflow: flex;
+    padding-top: 10px;
+    padding-bottom: 60px;
+   
+}
+
+
+
+body.index {
+    background-image: url('/img/gandalf-sax.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+/*
+ Smartphones (portrait) ----------- 
+@media only screen and (max-width: 480px) {
+    body.index {
+        background-size:contain;
+        background-position: auto;
+    }
+}
+*/
+/*code in jqury run in size.js */
+
+#main {
+    margin: 0;
+    margin-bottom: -10px;
+    /* Center horizontally */
+    text-align: center;
+    
+
+}
+
+h1 {
+    font-size: 50px;
+    color: green;
+    text-align: center;
+}
+
+
+
+/* Existing nav styles */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    display: block;
+    padding: 5px;
+    z-index: 9999;
+    line-height: 1; /* Ensures there's no extra space around the content */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #111;
+}
+
+nav li#navImageLink a {
+    padding: 0;    /* Remove padding for the logo link to fit the image */
+    line-height: normal; /* Reset line-height for this specific anchor */
+}
+
+nav li#navImageLink a img {
+    height: 40px;   /* Image takes the full height of its parent anchor */
+    width: auto;    /* Image width is automatically adjusted to maintain aspect ratio */
+}
+
+
+#index {
+    margin-top: 50px; /* Adjust based on the height of your navbar */
+}
+
+#gandalfHistoryHeader {
+    
+    color: #fff;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.intro {
+    max-width: 600px; /* Control the maximum width of the paragraph */
+    margin: auto; /* Center the paragraph */
+}
+
+.intro p {
+    text-align: left; /* Align the text to the left */
+    font-size: 18px; /* Adjust the font size as needed */
+    color: #333; /* Control the text color */
+    background-color: #f4f4f4; /* Control the background color */
+    padding: 10px 20px; /* Control the padding around the text */
+    margin-bottom: 10px; /* Control the space between paragraphs */
+    border-radius: 10px; /* Optional: for rounded corners */
+    box-shadow: 0 0 10px #000000; /* Optional: for a shadow effect */
+}
+
+.intro span#highlight {
+    font-weight: bold; /* Make the highlighted text bold */
+    color: #e44d26; /* Change the color of the highlighted text */
+}
+
+
+#globalFooter {
+    display: flex;
+    justify-content: center; /* Centers items on the line */
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px; /* good good good */
+    font-size: 1vw;
+}
+
+#globalFooter p {
+    margin: 0 10px; /* You can adjust the margin to add space between the | and the p elements */
+    position: relative;
+}
+
+#globalFooter p:first-child:after {
+    content: "|";
+    color: white;
+    position: absolute;
+    right: -10px; /* Adjust as necessary */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#globalFooter a {
+    color: white;
+}
+
+#globalFooter a:hover {
+    color: #ffcc00;
+    text-decoration: underline;
+}
+
+#main.contactUs {
+    box-sizing: border-box;
+    padding-bottom: 0px;
+}
+
+#contactForm {
+    max-width: auto;
+    margin: 60px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000000;
+}
+
+label, input, select, textarea {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 18px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type=radio] {
+    width: auto;
+}
+
+input[type=submit] {
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    display: auto;
+    align-items: center;
+    justify-content: center;
+   
+  }
+  
+  .flip-card {
+    background-color: transparent;
+    width: 500px;
+    height: 400px; /* Adjust as needed */
+    border: 1px transparent;
+    perspective: 1000px;
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  #flipButton{
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  #flipButton{
+    opacity: 0.7;
+  }
+  
+  .flip-card-front {
+    background-color: #bbb;
+    color: black;
+     border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow for depth */
+  }
+  
+  .flip-card-back {
+    background-color:black;
+    color: white;
+    transform: rotateY(180deg);
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow for depth */
+  }
+  
+  .table-container {
+    max-width: 500px; /* Reduced maximum width of the table */
+    margin: 30px auto; /* Center the table with more vertical space */
+    overflow: auto; /* Enable horizontal scroll for wide tables */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%; /* Ensure the table spans the entire container */
+    border-collapse: collapse; /* Removes the spacing between cells */
+    background-color: #fff; /* White background for contrast */
+    border-radius: 12px;
+    font-size: 16px; /* Slightly smaller text */
+}
+
+table th, table td {
+    text-align: left; /* Align the text to the left */
+    padding: 12px 20px; /* Adjusted padding for better appearance */
+    border-bottom: 2px solid #f1f1f1; /* Lighter and thicker border for cells */
+    color: #555; /* Dark gray text */
+}
+
+table th {
+    background-color: #f7f7f7; /* Light gray background for headers */
+    color: #444; /* Slightly darker text for headers */
+    letter-spacing: 1px; /* Add some letter spacing to headers */
+    font-weight: 500; /* Medium font weight for headers */
+}
+
+/* Add hover effect to rows */
+table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Remove the bottom border from the last row for aesthetics */
+table tr:last-child td {
+    border-bottom: none;
+}
+
+#watch {
+    width: 300px;
+    height: 300px;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow for depth */
+    margin: 20px auto; /* Centers the iframe horizontally */
+}
+
