@@ -169,52 +169,71 @@ nav li#navImageLink a img {
     text-decoration: underline;
 }
 
-#main.contactUs {
-    box-sizing: border-box;
-    padding-bottom: 0px;
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #a2a2a2; /* Silverish border for an elvish touch */
+    padding-bottom: 10px;
+   
 }
 
-#contactForm {
-    max-width: auto;
-    margin: 60px;
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #000000;
+#section_do_space_this_fix {
+    background-color: #f0e9e0; /* Papyrus-like background for an ancient touch */
+    padding: 20px; 
+    border: 2px solid #a2a2a2; /* Silverish border */
+    border-radius: 10px; /* Slightly more rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Label Styling */ 
+.section label {
+    flex: left;
+    font-weight: bold;
 }
 
-label, input, select, textarea {
-    display: block;
-    margin-bottom: 10px;
-    color: #333;
-    font-size: 18px;
-}
-
-input, select, textarea {
-    width: 100%;
+/* Input and Select Styling */
+.section input[type="text"],
+.section input[type="email"],
+.section select,
+.section textarea {
+    flex: 2;
     padding: 10px;
-    border-radius: 5px;
     border: 1px solid #ccc;
-    box-sizing: border-box;
+    border-radius: 4px;
 }
 
-input[type=radio] {
-    width: auto;
+/* Radio Button Styling */
+#tempWhy {
+    margin-right: 10px;
 }
 
-input[type=submit] {
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
+/* Radio and Checkbox Styling */
+.section input[type="radio"],
+.section input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Textarea Styling */
+.section textarea {
+    width: 100%;
+}
+
+/* Submit Button Styling */
+.section input[type="submit"] {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-input[type=submit]:hover {
-    background-color: #45a049;
+.section input[type="submit"]:hover {
+    background-color: #555;
 }
-
 .container {
     display: auto;
     align-items: center;
@@ -308,36 +327,52 @@ input[type=submit]:hover {
 }
 
 table {
-    width: 100%; /* Ensure the table spans the entire container */
-    border-collapse: collapse; /* Removes the spacing between cells */
-    background-color: #fff; /* White background for contrast */
+    width: 100%;
+    border-collapse: separate; /* Changed to 'separate' to ensure border-radius applies to individual cells */
+    background-color: #fff;
     border-radius: 12px;
-    font-size: 16px; /* Slightly smaller text */
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to the table for depth */
+    overflow: hidden; /* Ensures child elements (like tr and td) don't overflow the rounded corners */
+    margin: 20px 0; /* Optional: Add some margin for spacing */
 }
 
 table th, table td {
-    text-align: left; /* Align the text to the left */
-    padding: 12px 20px; /* Adjusted padding for better appearance */
-    border-bottom: 2px solid #f1f1f1; /* Lighter and thicker border for cells */
-    color: #555; /* Dark gray text */
+    text-align: left;
+    padding: 12px 20px;
+    border-bottom: 2px solid #f1f1f1;
+    color: #555;
 }
 
 table th {
-    background-color: #f7f7f7; /* Light gray background for headers */
-    color: #444; /* Slightly darker text for headers */
-    letter-spacing: 1px; /* Add some letter spacing to headers */
-    font-weight: 500; /* Medium font weight for headers */
+    background-color: #f7f7f7;
+    color: #444;
+    letter-spacing: 1px;
+    font-weight: 500;
 }
 
-/* Add hover effect to rows */
 table tr:hover {
     background-color: #f9f9f9;
 }
 
-/* Remove the bottom border from the last row for aesthetics */
 table tr:last-child td {
     border-bottom: none;
 }
+
+/* Adjust the border-radius for the bottom corners of the table */
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}
+
+/* Ensure the specific td with id "last-tr" does not have squared corners */
+#last-tr {
+    border-radius: 0; /* Resetting the border-radius */
+}
+
 
 #watch {
     width: 300px;
@@ -345,5 +380,50 @@ table tr:last-child td {
     border-radius: 12px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow for depth */
     margin: 20px auto; /* Centers the iframe horizontally */
+}
+.video-placeholder {
+    position: relative;
+    width: 100%; /* Full width */
+    padding-bottom: 56.25%; /* Aspect ratio for 16:9 */
+    border: 1px solid #aaa;
+    overflow: hidden; /* Hide anything outside of the container */
+    box-sizing: border-box;
+}
+
+.video-placeholder iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+}
+
+.viewe-count {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-top: 10px;
+}
+
+.live-section {
+    margin: 20px auto;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background-color: #f9f9f9; 
+    padding: 20px;
+    max-width: 80%; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.video-wrapper {
+    margin-bottom: 20px;
+}
+
+.viewer-wrapper {
+    background-color: #fff; 
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
 }
 

@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Gandalf's AeroSpectra Emporium</title>
-        <link rel="stylesheet" href="/css/style.css">
-        <script src="/js/index.js"></script>
-        <script src="/js/size.js"></script>
-    </head>
-    <body class="index">
-      <nav id="navbar">
+
+<head>
+    <title>Gandalf's AeroSpectra Emporium</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/index.js"></script>
+    <script src="/js/size.js"></script>
+</head>
+
+<body class="index">
+    <nav id="navbar">
         <ul>
-            <li id="navImageLink"><a href="https://en.wikipedia.org/wiki/J._R._R._Tolkien"><img src="/img/Gandalf.webp" alt="gandalf-sax"></a></li>
+            <li id="navImageLink"><a href="https://en.wikipedia.org/wiki/J._R._R._Tolkien"><img src="/img/Gandalf.webp"
+                        alt="gandalf-sax"></a></li>
             <li><a href="index.html" id='homeLink'>Home</a></li>
             <li><a href="about.html" id="aboutGMan">About Gandalf</a></li>
             <li><a href="contUs.html" id="contUs">Connect With Us</a></li>
@@ -17,13 +20,32 @@
             <li><a href="proTestLive.html">Live View</a></li>
         </ul>
     </nav>
-        <div id="main">
-               <h1>live view demo</h1>
+
+    <div id="main">
+        <h1>Live View Demo</h1>
+
+        <!-- Live Video Section -->
+        <div class="live-section">
+            <div class="video-wrapper">
+                <!-- Replace with your live video embed code from YouTube, Twitch, etc. -->
+                <div class="video-placeholder">
+                    <iframe src="https://www.youtube.com/embed/LIVE_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Viewer Count -->
+            <div class="viewer-wrapper">
+                <!-- This is a static placeholder. You'll need backend logic to update this in real-time. -->
+                <p><span id="liveVieweCount">123</span> people are currently watching.</p>
+            </div>
         </div>
-        <footer id="globalFooter">
-            <p>© 2023 Gandalf's AeroSpectra Emporium. All Rights Reserved.</p>
-            <P>All hail the cretor <a href="https://en.wikipedia.org/wiki/J._R._R._Tolkien">J._R._R._Tolkien</a></P>
-        </footer>
-    </body>
+    </div>
+    </div>
+
+    <footer id="globalFooter">
+        <p>© 2023 Gandalf's AeroSpectra Emporium. All Rights Reserved.</p>
+        <P>All hail the cretor <a href="https://en.wikipedia.org/wiki/J._R._R._Tolkien">J._R._R._Tolkien</a></P>
+    </footer>
+</body>
 
 </html>

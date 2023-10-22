@@ -18,45 +18,64 @@
             </ul>
         </nav>
         <div id="main">
-            <h1 id="welcomeHeader">Want to Contact us? Reach out to us here!!!</h1>
+            
+                <h1 id="welcomeHeader">Want to Contact us? Reach out to us here!!!</h1>
+           
+           <div id="section_do_space_this_fix">
             <form id="contactForm">
+                
                 <!-- Name Input -->
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required />
+                <div class="section">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required />
+                </div>
                 
                 <!-- Phone Input with Dropdown for Country Code -->
-                <label for="phone">Phone:</label>
-                <select id="countryCode" name="countryCode">
-                    <option value="+1">+1 (USA)</option>
-                    <option value="+44">+44 (UK)</option>
-                    <option value="+972">+972 (ISR)</option>
-                    <!-- Add other country codes as needed -->
-                </select>
-                <input type="text" id="phone" name="phone" required />
+                <div class="section">
+                    <label for="phone">Phone:</label>
+                    <select id="countryCode" name="countryCode">
+                        <option value="+1">+1 (USA)</option>
+                        <option value="+44">+44 (UK)</option>
+                        <option value="+972">+972 (ISR)</option>
+                        <!-- Add other country codes as needed -->
+                    </select>
+                    <input type="text" id="phone" name="phone" required />
+                </div>
                 
                 <!-- Email Input -->
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required />
+                <div class="section">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required />
+                </div>
                 
                 <!-- Gender Radio Buttons -->
-                <label>Gender:</label>
-                <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
-                <label id ='tempWhy' for="male">Male</label>
-                <input type="radio" id="male" name="gender" value="male" required />
-                <label  id= 'tempWhy' for="female">Female</label>
-                <input type="radio" id="female" name="gender" value="female" required />
-
-                <!-- Checkbox -->
-                <label for="subscribe">Subscribe to our newsletter:</label>
-                <input type="checkbox" id="subscribe" name="subscribe" />
+                <div class="section">
+                    <label>Gender:</label>
+                    <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+                    <label id='tempWhy' for="male">Male</label>
+                    <input type="radio" id="male" name="gender" value="male" required />
+                    <label id='tempWhy' for="female">Female</label>
+                    <input type="radio" id="female" name="gender" value="female" required />
+                </div>
         
+                <!-- Checkbox -->
+                <div class="section">
+                    <label for="subscribe">Subscribe to our newsletter:</label>
+                    <input type="checkbox" id="subscribe" name="subscribe" />
+                </div>
+                
                 <!-- Textarea for additional information -->
-                <label for="additionalInfo">What do you need?</label>
-                <textarea id="additionalInfo" name="additionalInfo" rows="4" required></textarea>
+                <div class="section">
+                    <label for="additionalInfo">What do you need?</label>
+                    <textarea id="additionalInfo" name="additionalInfo" rows="4" required></textarea>
+                </div>
         
                 <!-- Submit Button -->
-                <input type="submit" value="Submit" />
+                <div class="section" id="buttonToSend">
+                    <input type="submit" value="Submit" />
+                </div>
             </form>
+        </div>
         </div>
         
         </div>
