@@ -45,6 +45,21 @@ h1 {
     margin-bottom: 10px;
 }
 
+#picOfIndex {
+    position: relative;
+    bottom: 24px;  /* 5px from the bottom to "almost touch" the edge */
+    left: 50%;
+    width: 50%;   /* Covers 50% of the page width */
+    height: 50%;  /* Covers 50% of the page height */
+    overflow: hidden; /* In case the image is larger than the div */
+}
+
+#picOfIndex img {
+    width: 100%;  /* Makes sure the image fills the div */
+    height: 100%;
+    object-fit: cover; /* Makes sure the image covers the div without distortion */
+    border-radius: 15%;
+}
 
 
 /* Existing nav styles */
@@ -411,6 +426,11 @@ table tr:last-child td:last-child {
 }
 
 .live-section {
+    background-color: transparent;
+    width: 500px;
+    height: 400px; /* Adjust as needed */
+    border: 1px transparent;
+    perspective: 1000px;
     margin: 20px auto;
     border-radius: 8px;
     border: 1px solid #e0e0e0;
