@@ -5,8 +5,8 @@ title {
 }
 
 body {
-    color: green;
-    background-color:burlywood;
+    color: darkgreen;
+    background-color: gainsboro;
     display: flex;
     justify-content: center;
     align-items: auto;
@@ -17,14 +17,6 @@ body {
 }
 
 
-
-body.index {
-    background-image: url('/img/gandalf-sax.gif');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-}
 
 /*
  Smartphones (portrait) ----------- 
@@ -38,18 +30,19 @@ body.index {
 /*code in jqury run in size.js */
 
 #main {
-    margin: 0;
+    margin: auto;
     margin-bottom: -10px;
     /* Center horizontally */
     text-align: center;
-    
-
 }
 
+
 h1 {
+    margin-top: 80px;
     font-size: 50px;
     color: green;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 
@@ -59,7 +52,7 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #333;
+    background-color: darkgoldenrod;
     display: block;
     padding: 5px;
     z-index: 9999;
@@ -112,8 +105,10 @@ nav li#navImageLink a img {
 }
 
 .intro {
+    margin-top: 3%;
     max-width: 600px; /* Control the maximum width of the paragraph */
-    margin: auto; /* Center the paragraph */
+    margin-right: 1000px; /* Center the paragraph */
+    
 }
 
 .intro p {
@@ -140,7 +135,7 @@ nav li#navImageLink a img {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #333;
+    background-color: darkgoldenrod;
     color: white;
     padding: 20px; /* good good good */
     font-size: 1vw;
@@ -191,6 +186,13 @@ nav li#navImageLink a img {
 .section label {
     flex: left;
     font-weight: bold;
+}
+.section input[type="password"] {
+    flex: 1;
+    width: 100%; /* Make sure the input fields take the full width of their container */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 /* Input and Select Styling */
@@ -244,7 +246,7 @@ nav li#navImageLink a img {
   .flip-card {
     background-color: transparent;
     width: 500px;
-    height: 400px; /* Adjust as needed */
+    height: 600px; /* Adjust as needed */
     border: 1px transparent;
     perspective: 1000px;
   }
@@ -272,14 +274,17 @@ nav li#navImageLink a img {
   
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 100%;
+    max-width: 200%;
     text-align: center;
     font-family: arial;
   }
   
   .card img {
-    width: 100%;
-    height: auto;
+    margin-top: 10px;
+    width: 350px;
+    height: 350px;
+    border-color: gold;
+    border-radius: 5%;
   }
   
   .price {
@@ -375,8 +380,8 @@ table tr:last-child td:last-child {
 
 
 #watch {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     border-radius: 12px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow for depth */
     margin: 20px auto; /* Centers the iframe horizontally */
