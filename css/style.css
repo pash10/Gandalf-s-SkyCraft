@@ -128,8 +128,8 @@ nav li#navImageLink a img {
 
 .intro {
     margin-top: 3%;
-    max-width: 600px; /* Control the maximum width of the paragraph */
-    margin-right: 1000px; /* Center the paragraph */
+    max-width: 600px auto; /* Control the maximum width of the paragraph */
+    margin-right: 1000px auto; /* Center the paragraph */
     
 }
 
