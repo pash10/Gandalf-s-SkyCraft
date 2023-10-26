@@ -58,31 +58,58 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
 
     switch (checkGood(username, email, password, confirmPassword, confirmEmail, productSerial)) {
         case 0:
-            // Firebase registration
-            firebase.auth().createUserWithEmailAndPassword(email, password)
-                .then(function (userCredential) {
-                    // User registered successfully
-                    var user = userCredential.user;
-                    console.log('User registered:', user);
+            case 0:
+    const db = firebase.firestore();
+    const usersRef = db.collection('users');
+    const serialsRef = db.collection('serialNumbers'); // assuming you have a collection for serial numbers
 
-                    // Additional code to store user data, if needed
-                    // For example, storing the username in Firestore
-                    firebase.firestore().collection('users').doc(user.uid).set({
-                        username: username,
-                        email: email,
-                        // Other user data you want to store
-                    }).then(function () {
-                        console.log('User data stored successfully');
-                    }).catch(function (error) {
-                        console.error('Error storing user data:', error);
-                    });
-                })
-                .catch(function (error) {
-                    // Handle registration errors
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
-                    console.error('Registration error:', errorCode, errorMessage);
-                });
+    usersRef.where('username', '==', username).get()
+        .then(snapshot => {
+            if (!snapshot.empty) {
+                throw new Error('Username already exists');
+            }
+            return usersRef.where('email', '==', email).get();
+        })
+        .then(snapshot => {
+            if (!snapshot.empty) {
+                throw new Error('Email already exists');
+            }
+            return serialsRef.where('number', '==', productSerial).get();
+        })
+        .then(snapshot => {
+            if (!snapshot.empty) {
+                throw new Error('Serial number already exists');
+            }
+            return firebase.auth().createUserWithEmailAndPassword(email, password);
+        })
+        .then(function (userCredential) {
+            // User registered successfully
+            var user = userCredential.user;
+            console.log('User registered:', user);
+
+            return firebase.firestore().collection('users').doc(user.uid).set({
+                username: username,
+                email: email,
+                productSerial: productSerial,
+                // Other user data you want to store
+            });
+        })
+        .then(function () {
+            console.log('User data stored successfully');
+        })
+        .catch(function (error) {
+            if (error.message === 'Username already exists') {
+                errorMessage.textContent = "Username already exists";
+            } else if (error.message === 'Email already exists') {
+                errorMessage.textContent = "Email already exists";
+            } else if (error.message === 'Serial number already exists') {
+                errorMessage.textContent = "Serial number already exists";
+            } else {
+                errorMessage.textContent = "An unknown error occurred";
+            }
+            console.error('Registration error:', error);
+        });
+    break;
             break;
         case 1:
             errorMessage.textContent = "Username field is empty";
@@ -147,8 +174,15 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                     // Handle login errors
                     var errorCode = error.code;
                     var errorMessage = error.message;
-                    console.error('Login error:', errorCode, errorMessage);
-                    alert('Login failed: ' + errorMessage);  // Inform the user
+                
+                    if (errorCode === 'auth/user-not-found') {
+                        alert('No account found with the provided email address. Please sign up.');
+                    } else if (errorCode === 'auth/wrong-password') {
+                        alert('Incorrect password. Please try again.');
+                    } else {
+                        console.error('Login error:', errorCode, errorMessage);
+                        alert('Login failed: ' + errorMessage);  // Inform the user
+                    }
                 });
             break;
         case 1:
