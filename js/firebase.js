@@ -56,7 +56,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
     var productSerial = document.getElementById('productSerial').value;
     var errorElement = document.getElementById('error');
 
-    switch (checkGood(username, email, password, confirmPassword, confirmEmail, productSerial)) {
+    switch (checkGoodReg(username, email, password, confirmPassword, confirmEmail, productSerial)) {
         case 0:
             case 0:
     const db = firebase.firestore();
