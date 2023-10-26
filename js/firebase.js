@@ -1,14 +1,23 @@
 // firebase.js
 
 // Your Firebase config object, obtained from your Firebase project settings
-var firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
-};
+const firebaseConfig = {
+
+    apiKey: "AIzaSyCMtz8eJe7WYvllOQ0wtSyOuW_a7gUkG1c",
+  
+    authDomain: "see-the-sea-4c396.firebaseapp.com",
+  
+    projectId: "see-the-sea-4c396",
+  
+    storageBucket: "see-the-sea-4c396.appspot.com",
+  
+    messagingSenderId: "208499675243",
+  
+    appId: "1:208499675243:web:ff025b1f1d549ad6a0612e",
+  
+    measurementId: "G-TNLP4SHRHW"
+  
+  };
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -48,12 +57,10 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
         });
 });
 
-
-// Login script
 document.getElementById('loginForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
-    var email = document.getElementById('username').value; // Assuming you're using the username field for email
+    var email = document.getElementById('email').value; // Updated to use email
     var password = document.getElementById('password').value;
 
     // Firebase login
