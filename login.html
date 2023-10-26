@@ -31,24 +31,30 @@
             
             <div id="section_do_space_this_fix">
                 <form id="loginForm">
-                    
-                    <!-- Username Input -->
+    
+                    <!-- Email Input -->
                     <div class="section">
-                        <label for="email">email::</label>
-                        <input type="text" id="email" name="email" required />
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required placeholder="example@email.com" />
                     </div>
                     
                     <!-- Password Input -->
                     <div class="section">
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required />
+                        <input type="password" id="password" name="password" required placeholder="Enter your password" />
                     </div>
-                    <p id="errorMessage" class="error-message"></p>
+                
+                    <!-- Error Message Display -->
+                    <div class="section">
+                        <p id="error" style="color: red;"></p>
+                    </div>
+                
                     <!-- Submit Button -->
                     <div class="section" id="buttonToSend">
                         <input type="submit" value="Login" />
                     </div>
                 </form>
+                
             </div>
             
             <p>Don't have an account? <a href="register.html">Register here</a></p>

@@ -40,46 +40,50 @@
                 <!-- Username Input -->
                 <div class="section">
                     <label for="username">Username: </label>
-                    <input type="text" id="username" name="username" required />
+                    <input type="text" id="username" name="username" required placeholder="Enter your username" />
                 </div>
-
+            
                 <!-- Email Input -->
                 <div class="section">
                     <label for="email">Email: </label>
-                    <input type="email" id="email" name="email" required />
+                    <input type="email" id="email" name="email" required placeholder="example@email.com" />
                 </div>
-
+            
+                <!-- Confirm Email Input -->
                 <div class="section">
-                     <label for="confirmEmail">Confirm Email: </label>
-                     <input type="email" id="confirmEmail" name="confirmEmail">
+                    <label for="confirmEmail">Confirm Email: </label>
+                    <input type="email" id="confirmEmail" name="confirmEmail" placeholder="Re-enter your email" />
                 </div>
-
+            
                 <!-- Password Input -->
                 <div class="section">
                     <label for="password">Password: </label>
-                    <input type="password" id="password" name="password" required />
+                    <input type="password" id="password" name="password" required placeholder="Enter a strong password" />
                 </div>
-
+            
                 <!-- Confirm Password Input -->
                 <div class="section">
                     <label for="confirmPassword">Confirm Password: </label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" required />
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Re-enter your password" />
                 </div>
-
+            
                 <!-- Product Selection Dropdown -->
                 <div class="section">
                     <label for="productSerial">Product Serial Number: </label>
-                    <input type="text" id="productSerial" name="productSerial" required
-                        placeholder="Enter your product serial number" />
+                    <input type="text" id="productSerial" name="productSerial" required placeholder="Enter your product serial number" />
                 </div>
+            
+                <!-- Error Message Display -->
                 <div class="section">
                     <p id="error" style="color: red;"></p>
                 </div>
+        
                 <!-- Submit Button -->
                 <div class="section" id="buttonToSend">
-                    <input type="submit" id=="submitButton" value="Register" />
+                    <input type="submit" id="submitButton" value="Register" />
                 </div>
             </form>
+            
         </div>
         <p>Already have an account? <a href="login.html">Login here</a></p>
     </div>
