@@ -1,17 +1,4 @@
-// Import the functions you need from the SDKs you need
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
-
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
-
-// TODO: Add SDKs for Firebase products that you want to use
-
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-
-// Your web app's Firebase configuration
-
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const firebaseConfig = {
 
@@ -34,15 +21,17 @@ const firebaseConfig = {
 };
 
 
+
 // Initialize Firebase
 
-const app = initializeApp(firebaseConfig);
-
+const app = firebase.initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+const usersRef = db.collection('users');
+const serialsRef = db.collection('serialNumbers'); // assuming you have a collection for serial number
 
 // Your registration script
 document.getElementById('registerForm').addEventListener('submit', function (event) {
@@ -54,62 +43,57 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
     var password = document.getElementById('password').value;
     var confirmPassword = document.getElementById('confirmPassword').value;
     var productSerial = document.getElementById('productSerial').value;
-    var errorElement = document.getElementById('error');
+    var errorMessage = document.getElementById('error');
 
     switch (checkGoodReg(username, email, password, confirmPassword, confirmEmail, productSerial)) {
         case 0:
-            case 0:
-    const db = firebase.firestore();
-    const usersRef = db.collection('users');
-    const serialsRef = db.collection('serialNumbers'); // assuming you have a collection for serial numbers
+            usersRef.where('username', '==', username).get()
+                .then(snapshot => {
+                    if (!snapshot.empty) {
+                        throw new Error('Username already exists');
+                    }
+                    return usersRef.where('email', '==', email).get();
+                })
+                .then(snapshot => {
+                    if (!snapshot.empty) {
+                        throw new Error('Email already exists');
+                    }
+                    return serialsRef.where('number', '==', productSerial).get();
+                })
+                .then(snapshot => {
+                    if (!snapshot.empty) {
+                        throw new Error('Serial number already exists');
+                    }
+                    return firebase.auth().createUserWithEmailAndPassword(email, password);
+                })
+                .then(function (userCredential) {
+                    // User registered successfully
+                    var user = userCredential.user;
+                    console.log('User registered:', user);
 
-    usersRef.where('username', '==', username).get()
-        .then(snapshot => {
-            if (!snapshot.empty) {
-                throw new Error('Username already exists');
-            }
-            return usersRef.where('email', '==', email).get();
-        })
-        .then(snapshot => {
-            if (!snapshot.empty) {
-                throw new Error('Email already exists');
-            }
-            return serialsRef.where('number', '==', productSerial).get();
-        })
-        .then(snapshot => {
-            if (!snapshot.empty) {
-                throw new Error('Serial number already exists');
-            }
-            return firebase.auth().createUserWithEmailAndPassword(email, password);
-        })
-        .then(function (userCredential) {
-            // User registered successfully
-            var user = userCredential.user;
-            console.log('User registered:', user);
-
-            return firebase.firestore().collection('users').doc(user.uid).set({
-                username: username,
-                email: email,
-                productSerial: productSerial,
-                // Other user data you want to store
-            });
-        })
-        .then(function () {
-            console.log('User data stored successfully');
-        })
-        .catch(function (error) {
-            if (error.message === 'Username already exists') {
-                errorMessage.textContent = "Username already exists";
-            } else if (error.message === 'Email already exists') {
-                errorMessage.textContent = "Email already exists";
-            } else if (error.message === 'Serial number already exists') {
-                errorMessage.textContent = "Serial number already exists";
-            } else {
-                errorMessage.textContent = "An unknown error occurred";
-            }
-            console.error('Registration error:', error);
-        });
-    break;
+                    return firebase.firestore().collection('users').doc(user.uid).set({
+                        username: username,
+                        email: email,
+                        productSerial: productSerial,
+                        // Other user data you want to store
+                    });
+                })
+                .then(function () {
+                    console.log('User data stored successfully');
+                })
+                .catch(function (error) {
+                    if (error.message === 'Username already exists') {
+                        errorMessage.textContent = "Username already exists";
+                    } else if (error.message === 'Email already exists') {
+                        errorMessage.textContent = "Email already exists";
+                    } else if (error.message === 'Serial number already exists') {
+                        errorMessage.textContent = "Serial number already exists";
+                    } else {
+                        errorMessage.textContent = "An unknown error occurred";
+                    }
+                    console.error('Registration error:', error);
+                });
+            break;
             break;
         case 1:
             errorMessage.textContent = "Username field is empty";
@@ -174,7 +158,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                     // Handle login errors
                     var errorCode = error.code;
                     var errorMessage = error.message;
-                
+
                     if (errorCode === 'auth/user-not-found') {
                         alert('No account found with the provided email address. Please sign up.');
                     } else if (errorCode === 'auth/wrong-password') {
