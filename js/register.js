@@ -3,13 +3,15 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
 
     var username = document.getElementById('username').value;
     var email = document.getElementById('email').value;
-    var confirmEmail = document.getElementById('ConfirmEmail');
+    var confirmEmail = document.getElementById('ConfirmEmail').value;
     var password = document.getElementById('password').value;
-    var confirmPassword = document.getElementById('confirmPassword').value;
-    var productSerial = document.getElementById('productSerial').value;
+    var confirmPassword = document.getElementById('ConfirmPassword').value;
+    var productSerial = document.getElementById('ProductSerial').value;
     var errorMessage = document.getElementById('error');
-
-    switch (checkGoodReg(username, email, password, confirmPassword, confirmEmail, productSerial)) {
+    
+    console.log(checkGoodReg(username, email,confirmEmail, password, confirmPassword, productSerial));
+    
+    switch (checkGoodReg(username, email,confirmEmail, password, confirmPassword, productSerial)) {
         case 0:
             db.ref('users').orderByChild('username').equalTo(username).once('value', snapshot => {
                 if (snapshot.exists()) {

@@ -13,7 +13,7 @@ function checkGoodReg(username, mail, confEmail,password, confPass,ser) {
     else if (!confEmail) {
         return 5;
     }
-    else if (checkEmailAndConfEmail(mail, confEmail)) {
+    else if (!checkEmailAndConfEmail(mail, confEmail)) {
         return 6; //email and conf email !=
     }
     else if (!password) {
@@ -25,7 +25,7 @@ function checkGoodReg(username, mail, confEmail,password, confPass,ser) {
     else if (!confPass) {
         return 9; //Conf Pass field is empty
     }
-    else if (checkPassToPassConf(password, confPass)) {
+    else if (!checkPassToPassConf(password, confPass)) {
         return 10  //pass and conf !=
     }
     else if (!SerNum(ser)) {
@@ -50,7 +50,7 @@ function checkIfEmailValid(email,) {
 }
 
 function checkEmailAndConfEmail(email, confEmail) {
-    return email === confPass;
+    return email === confEmail;
 }
 
 function checkPassToPassConf(pass, confPass) {
