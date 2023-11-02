@@ -1,37 +1,28 @@
 
-
+// Firebase configuration
 const firebaseConfig = {
-
     apiKey: "AIzaSyCMtz8eJe7WYvllOQ0wtSyOuW_a7gUkG1c",
-
     authDomain: "see-the-sea-4c396.firebaseapp.com",
-
     databaseURL: "https://see-the-sea-4c396-default-rtdb.europe-west1.firebasedatabase.app",
-
     projectId: "see-the-sea-4c396",
-
     storageBucket: "see-the-sea-4c396.appspot.com",
-
     messagingSenderId: "208499675243",
-
     appId: "1:208499675243:web:ff025b1f1d549ad6a0612e",
-
     measurementId: "G-TNLP4SHRHW"
-
 };
 
-
-
 // Initialize Firebase
-
 const app = firebase.initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+console.log('Firebase App initialized:', app);
 
+// Initialize Firebase Analytics (Optional, only if you're using Firebase Analytics)
+const analytics = firebase.analytics(app);
+console.log('Firebase Analytics initialized:', analytics);
 
+// Initialize Firebase Realtime Database
+const db = firebase.database();
+console.log('Firebase Realtime Database initialized:', db);
 
-const db = firebase.firestore();
-const usersRef = db.collection('users');
-const serialsRef = db.collection('serialNumbers'); // assuming you have a collection for serial number
 
 // Your registration script
 document.getElementById('registerForm').addEventListener('submit', function (event) {
@@ -47,40 +38,40 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
 
     switch (checkGoodReg(username, email, password, confirmPassword, confirmEmail, productSerial)) {
         case 0:
-            usersRef.where('username', '==', username).get()
-                .then(snapshot => {
-                    if (!snapshot.empty) {
-                        throw new Error('Username already exists');
-                    }
-                    return usersRef.where('email', '==', email).get();
-                })
-                .then(snapshot => {
-                    if (!snapshot.empty) {
-                        throw new Error('Email already exists');
-                    }
-                    return serialsRef.where('number', '==', productSerial).get();
-                })
-                .then(snapshot => {
-                    if (!snapshot.empty) {
-                        throw new Error('Serial number already exists');
-                    }
-                    return firebase.auth().createUserWithEmailAndPassword(email, password);
-                })
-                .then(function (userCredential) {
-                    // User registered successfully
-                    var user = userCredential.user;
-                    console.log('User registered:', user);
+            db.ref('users').orderByChild('username').equalTo(username).once('value', snapshot => {
+                if (snapshot.exists()) {
+                    throw new Error('Username already exists');
+                }
+                return db.ref('users').orderByChild('email').equalTo(email).once('value');
+            })
+            .then(snapshot => {
+                if (snapshot.exists()) {
+                    throw new Error('Email already exists');
+                }
+                return db.ref('serialNumbers').orderByChild('number').equalTo(productSerial).once('value');
+            })
+            .then(snapshot => {
+                if (snapshot.exists()) {
+                    throw new Error('Serial number already exists');
+                }
+                return firebase.auth().createUserWithEmailAndPassword(email, password);
+            })
+            .then(function (userCredential) {
+                // User registered successfully
+                var user = userCredential.user;
+                console.log('User registered:', user);
 
-                    return firebase.firestore().collection('users').doc(user.uid).set({
-                        username: username,
-                        email: email,
-                        productSerial: productSerial,
-                        // Other user data you want to store
-                    });
-                })
-                .then(function () {
-                    console.log('User data stored successfully');
-                })
+                // Use Realtime Database API
+                return db.ref('users/' + user.uid).set({
+                    username: username,
+                    email: email,
+                    productSerial: productSerial,
+                    
+                });
+            })
+            .then(function () {
+                console.log('User data stored successfully');
+            })
                 .catch(function (error) {
                     if (error.message === 'Username already exists') {
                         errorMessage.textContent = "Username already exists";
@@ -93,7 +84,6 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
                     }
                     console.error('Registration error:', error);
                 });
-            break;
             break;
         case 1:
             errorMessage.textContent = "Username field is empty";
@@ -145,15 +135,32 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         case 0:
             // Firebase login
             firebase.auth().signInWithEmailAndPassword(email, password)
-                .then(function (userCredential) {
-                    // User logged in successfully
-                    var user = userCredential.user;
-                    console.log('User logged in:', user);
+    .then(function (userCredential) {
+        // User logged in successfully
+        var user = userCredential.user;
+        console.log('User logged in:', user);
 
-                    // Redirect to a specific page after successful login if desired
-                    // For example:
-                    // window.location.href = "dashboard.html"; 
-                })
+        // Retrieve additional user data from Firebase database
+        return db.ref('users/' + user.uid).once('value');
+    })
+    .then(function(snapshot) {
+        if (snapshot.exists()) {
+            var userData = snapshot.val();
+            
+            // Save user data to local storage
+            saveUserDataToLocalStorage({
+                username: userData.username,
+                email: email,
+                uid: user.uid,
+                productSerial: userData.productSerial
+               
+            });
+
+            console.log('User data retrieved and saved to local storage');
+        } else {
+            throw new Error('User data not found');
+        }
+    })
                 .catch(function (error) {
                     // Handle login errors
                     var errorCode = error.code;
@@ -254,7 +261,16 @@ function SerNum(ser) {
     var pattern = /^gfsts\d{5}$/;
     return pattern.test(ser)
 }
+function saveUserDataToLocalStorage(user) {
+    const userData = {
+        username: user.username,
+        email: user.email,
+        productSerial: user.productSerial
+    };
+    localStorage.setItem('loggedInUser', JSON.stringify(userData));
+}
 
-
-
-
+function getUserDataFromLocalStorage() {
+    const userData = localStorage.getItem('loggedInUser');
+    return userData ? JSON.parse(userData) : null;
+}
