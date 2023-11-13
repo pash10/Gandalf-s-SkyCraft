@@ -259,16 +259,15 @@ nav li#navImageLink a img {
     background-color: #555;
 }
 .container {
-    display: auto;
+    display: flex; /* Changed from auto */
     align-items: center;
     justify-content: center;
-   
   }
   
   .flip-card {
     background-color: transparent;
     width: 500px;
-    height: 600px; /* Adjust as needed */
+    height: 600px;
     border: 1px transparent;
     perspective: 1000px;
   }
@@ -280,10 +279,7 @@ nav li#navImageLink a img {
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-  }
-  
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
+    transform-origin: center;
   }
   
   .flip-card-front,
@@ -294,6 +290,30 @@ nav li#navImageLink a img {
     backface-visibility: hidden;
   }
   
+  /* Initially hide the contents of the back */
+  .flip-card-back > * {
+    transition: opacity 0.8s;
+    opacity: 0; /* Start with the content fully transparent */
+    /* Delay the opacity transition until the flip is almost done */
+    transition-delay: 0.4s;
+  }
+  
+  .flip-card.do-flip .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Make the back content visible and un-mirrored once the card has flipped */
+  .flip-card.do-flip .flip-card-back > * {
+    opacity: 1;
+    transform: rotateY(180deg); /* Un-mirror the text */
+    transition-delay: 0s; /* Reset the delay so the content shows immediately after the flip */
+  }
+  .flip-card.do-flip .flip-card-front >*{
+    opacity: 1;
+    transform:  rotateY(180deg);
+    transition-delay: 0s;
+  }
+
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 200%;
@@ -314,7 +334,16 @@ nav li#navImageLink a img {
     font-size: 22px;
   }
   
-  #flipButton{
+  .do-flip {
+    -o-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+  }
+  .flip-card.do-flip .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  .flipButton {
     border: none;
     outline: 0;
     padding: 12px;
@@ -324,26 +353,26 @@ nav li#navImageLink a img {
     cursor: pointer;
     width: 100%;
     font-size: 18px;
-  }
-  
-  #flipButton{
-    opacity: 0.7;
+    opacity: 0.7; /* Consolidated duplicate definitions */
   }
   
   .flip-card-front {
     background-color: #bbb;
     color: black;
-     border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow for depth */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   .flip-card-back {
-    background-color:black;
+    background-color: black;
     color: white;
-    transform: rotateY(180deg);
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow for depth */
+    transform: rotateY(180deg);/*Uncomment this if you want the back to start flipped */
+    border-radius: 12px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   }
+ 
+
+  
   
   .table-container {
     max-width: 500px; /* Reduced maximum width of the table */

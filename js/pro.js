@@ -1,14 +1,20 @@
+document.addEventListener('DOMContentLoaded', function(event) {
+    var flipCard = document.querySelector('.flip-card');
+    var flipToBackBtn = document.getElementById('flip-card-btn-turn-to-back');
+    var flipToFrontBtn = document.getElementById('flip-card-btn-turn-to-front');
+    flipToBackBtn.style.visibility = 'visible';
+    flipToFrontBtn.style.visibility = 'visible';
 
-document.addEventListener("DOMContentLoaded", function() {
-    let path = window.location.pathname;
-    let page = path.split("/").pop();
-    let navItems = document.querySelectorAll("#navbar a");
-    navItems.forEach(item => {
-        if (item.getAttribute("href") === page) {
-            item.style.fontWeight = "bold";
-            item.style.fontSize = "larger";  // Makes the font size larger
-            item.style.color = "red";       // Changes the color to red
-            item.style.textDecoration = "underline"; // Adds underline
-        }
-    });
+
+    flipToBackBtn.onclick = function() {
+        console.log('Flip to Back');
+        flipCard.classList.add('do-flip');
+    };
+
+    flipToFrontBtn.onclick = function() {
+        console.log('Flip to Front');
+        flipCard.classList.remove('do-flip');
+    };
 });
+
+

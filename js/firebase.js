@@ -11,13 +11,11 @@ const firebaseConfig = {
     measurementId: "G-TNLP4SHRHW"
 };
 
-
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 console.log('Firebase App initialized:', app);
 
 // Initialize Firebase Analytics (Optional, only if you're using Firebase Analytics)
-
 
 // Initialize Firebase Realtime Database
 const db = firebase.database();

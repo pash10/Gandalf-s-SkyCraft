@@ -60,7 +60,6 @@ function checkPassToPassConf(pass, confPass) {
 function userNmaeGood(userName) {
     var pattern = /^[a-zA-Z0-9]+$/;
     return pattern.test(userName);
-
 }
 
 function checkPassword(pass) {
