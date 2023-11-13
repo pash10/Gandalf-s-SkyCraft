@@ -142,6 +142,7 @@ nav li#navImageLink a img {
     margin-bottom: 10px; /* Control the space between paragraphs */
     border-radius: 10px; /* Optional: for rounded corners */
     box-shadow: 0 0 10px #000000; /* Optional: for a shadow effect */
+    margin-right: auto;
 }
 
 .intro span#highlight {
