@@ -16,8 +16,6 @@ body {
    
 }
 
-
-
 /*
  Smartphones (portrait) ----------- 
 @media only screen and (max-width: 480px) {
@@ -35,7 +33,6 @@ body {
     /* Center horizontally */
     text-align: center;
 }
-
 
 h1 {
     margin-top: 50px;
@@ -128,8 +125,8 @@ nav li#navImageLink a img {
 
 .intro {
     margin-top: 3%;
-    max-width: 100dvb ; /* Control the maximum width of the paragraph */
-    margin-right: 100dvh; /* Center the paragraph */
+    max-width:  auto ; /* Control the maximum width of the paragraph */
+    margin-right:  auto; /* Center the paragraph */
     
 }
 
@@ -142,7 +139,7 @@ nav li#navImageLink a img {
     margin-bottom: 10px; /* Control the space between paragraphs */
     border-radius: 10px; /* Optional: for rounded corners */
     box-shadow: 0 0 10px #000000; /* Optional: for a shadow effect */
-    margin-right: auto;
+    margin-right: 100dvb;
 }
 
 .intro span#highlight {
