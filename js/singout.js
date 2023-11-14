@@ -1,0 +1,33 @@
+// Function to sign out the user
+function signOutUser() {
+    // Using Firebase's signOut method
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful
+        console.log('User signed out.');
+
+        // Clear user data from local storage
+        clearLocalStorageData();
+
+        // Update login status in local storage
+        localStorage.setItem('login', false);
+
+        // Redirect to login page or other appropriate action
+        window.location.href = 'login.html';
+    }).catch((error) => {
+        // Handle errors here
+        console.error('Sign out error:', error);
+    });
+}
+
+// Function to clear user data from local storage
+function clearLocalStorageData() {
+    // Clear specific user data or all data
+    localStorage.removeItem('username');
+    localStorage.removeItem('email');
+    localStorage.removeItem('productSerial');
+    // Alternatively, to clear all data:
+    // localStorage.clear();
+}
+
+// Add event listener to sign out button or link
+document.getElementById('signOutButton').addEventListener('click', signOutUser);

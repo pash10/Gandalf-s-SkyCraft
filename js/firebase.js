@@ -22,6 +22,7 @@ const db = firebase.database();
 console.log('Firebase Realtime Database initialized:', db);
 
 localStorage.setItem("login",false);
+console.log(localStorage.getItem('login'));
 
 
 
