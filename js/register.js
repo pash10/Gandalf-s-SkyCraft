@@ -46,6 +46,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
                 })
                 .then(function () {
                     console.log('User data stored successfully');
+                    window.location.href = 'login.html';
                 })
                 .catch(function (error) {
                     if (error.message === 'Username already exists') {

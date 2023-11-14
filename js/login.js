@@ -28,6 +28,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                             productSerial: userData.productSerial
                         });
                         localStorage.setItem('login',true);
+                        window.location.href = 'index.html';
                     } else {
                         throw new Error('User data not found');
                     }
