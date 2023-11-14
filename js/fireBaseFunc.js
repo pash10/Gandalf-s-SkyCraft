@@ -83,3 +83,8 @@ function getUserDataFromLocalStorage() {
     const userData = localStorage.getItem('loggedInUser');
     return userData ? JSON.parse(userData) : null;
 }
+
+
+function Logout(){
+    
+}

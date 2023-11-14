@@ -25,12 +25,9 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                         saveUserDataToLocalStorage({
                             username: userData.username,
                             email: email,
-                            uid: user.uid,
                             productSerial: userData.productSerial
-
                         });
-
-                        console.log('User data retrieved and saved to local storage');
+                        localStorage.setItem('login',true);
                     } else {
                         throw new Error('User data not found');
                     }
@@ -41,7 +38,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                     } else if (error === 'auth/wrong-password') {
                         alert('Incorrect password. Please try again.');
                     } else {
-                        console.error('Login error:', errorCode, errorMessage);
+                        console.error('Login error:',  error,errorMessage);
                         alert('Login failed: ' + errorMessage);  // Inform the user
                         errorMessage.textContent = "err"
 
