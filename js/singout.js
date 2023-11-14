@@ -1,4 +1,12 @@
-// Function to sign out the user
+document.addEventListener('DOMContentLoaded', function() {
+    var logoutLink = document.getElementById('logoutButton');
+    if (logoutLink) {
+        logoutLink.addEventListener('Logout', signOutUser);
+    } else {
+        console.error('Logout link not found');
+    }
+});
+
 function signOutUser() {
     // Using Firebase's signOut method
     firebase.auth().signOut().then(() => {
@@ -19,7 +27,6 @@ function signOutUser() {
     });
 }
 
-// Function to clear user data from local storage
 function clearLocalStorageData() {
     // Clear specific user data or all data
     localStorage.removeItem('username');
@@ -28,6 +35,3 @@ function clearLocalStorageData() {
     // Alternatively, to clear all data:
     // localStorage.clear();
 }
-
-// Add event listener to sign out button or link
-document.getElementById('signOutButton').addEventListener('click', signOutUser);

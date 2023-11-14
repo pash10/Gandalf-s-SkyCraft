@@ -50,34 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         logoutButton.style.display = 'none';
     }
     
-
-
-
-    /*SHOW ONLY What you need in the nav bar */
-
-
-
 });
 
 
 
-
-/*need to add  */
-/*
-
-
-if(localStorage.getItem('isLoggedIn') =='true') {
-    console.log('word') // Logs 'word' to the console if the user is logged in
-    logoutButton.style.display = 'block';
-    postLink.style.display = 'block';
-    mapLink.style.display = 'blcok'; // Typo: should be 'block'
-    registerLink.style.display = 'none';
-    loginLink.style.display = 'none';
-} else {
-    logoutButton.style.display = 'none';
-    postLink.style.display = 'none';
-    mapLink.style.display = 'none';
-    registerLink.style.display = 'block';
-    loginLink.style.display = 'block';
-}
-*/
