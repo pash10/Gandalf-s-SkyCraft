@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var logoutLink = document.getElementById('logoutButton');
     if (logoutLink) {
-        logoutLink.addEventListener('Logout', signOutUser);
+        logoutLink.addEventListener('click', signOutUser);
     } else {
         console.error('Logout link not found');
     }
