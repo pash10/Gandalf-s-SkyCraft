@@ -3,8 +3,6 @@
     <head>
         <title>Contact us - Gandalf's AeroSpectra Emporium</title>
         <link rel="stylesheet" href="/css/style.css">
-        <script src="/js/index.js"></script>
-        <script src="/js/size.js"></script>
     </head>
     <body class="index">
         <nav id="navbar">
@@ -32,7 +30,7 @@
                 <!-- Name Input -->
                 <div class="section">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required />
+                    <input type="text" id="name" name="name"/>
                 </div>
                 
                 <!-- Phone Input with Dropdown for Country Code -->
@@ -44,13 +42,13 @@
                         <option value="+972">+972 (ISR)</option>
                         <!-- Add other country codes as needed -->
                     </select>
-                    <input type="text" id="phone" name="phone" required />
+                    <input type="text" id="phone" name="phone"/>
                 </div>
                 
                 <!-- Email Input -->
                 <div class="section">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required />
+                    <input type="text" id="email" name="email"/>
                 </div>
                 
                 <!-- Gender Radio Buttons -->
@@ -58,9 +56,9 @@
                     <label>Gender:</label>
                     <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
                     <label id='tempWhy' for="male">Male</label>
-                    <input type="radio" id="male" name="gender" value="male" required />
+                    <input type="radio" id="male" name="gender" value="male"  />
                     <label id='tempWhy' for="female">Female</label>
-                    <input type="radio" id="female" name="gender" value="female" required />
+                    <input type="radio" id="female" name="gender" value="female"  />
                 </div>
         
                 <!-- Checkbox -->
@@ -72,7 +70,11 @@
                 <!-- Textarea for additional information -->
                 <div class="section">
                     <label for="additionalInfo">What do you need?</label>
-                    <textarea id="additionalInfo" name="additionalInfo" rows="4" required></textarea>
+                    <textarea id="additionalInfo" name="additionalInfo" rows="4" ></textarea>
+                </div>
+                
+                <div class="section">
+                    <p id="error" style="color: red;"></p>
                 </div>
         
                 <!-- Submit Button -->
@@ -88,5 +90,16 @@
             <p>© 2023 Gandalf's AeroSpectra Emporium. All Rights Reserved.</p>
             <P>All hail the creator <a href="https://en.wikipedia.org/wiki/J._R._R._Tolkien">J._R._R._Tolkien</a></P>
         </footer>
+
+        script src="/js/index.js"></script>
+    <script src="/js/size.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-database-compat.js"></script>
+    <script src="/js/firebase.js"></script>
+    <script src="js/fireBaseFunc.js"></script>
+    <script src="js/contUs.js"></script>
+</body>
     </body>
 </html>

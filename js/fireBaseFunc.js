@@ -70,6 +70,27 @@ function SerNum(ser) {
     var pattern = /^gfsts\d{5}$/;
     return pattern.test(ser)
 }
+
+function checkNameLegal(name) {
+    var pattern = /^[a-zA-Z]+$/;
+    return pattern.test(name);
+}
+
+function checkPhoneNumGood(phone) {
+    var pattern = /^[\d\s()-]{7,15}$/;
+    return pattern.test(phone);
+}
+
+function checkAdditionalInfo() {
+    var info = document.getElementById('additionalInfo').value.trim(); // .trim() removes any leading/trailing white spaces
+
+    if (info === "") {
+        return false; // or any appropriate handling for empty textarea
+    }
+
+    return true; // or handle the filled-out textarea
+}
+
 function saveUserDataToLocalStorage(user) {
     const userData = {
         username: user.username,
@@ -84,7 +105,24 @@ function getUserDataFromLocalStorage() {
     return userData ? JSON.parse(userData) : null;
 }
 
-
-function Logout(){
-    
-}
+// conct us
+function contUs(name, phone, email, gender, additionalInfo) {
+    if (!name) {
+        return 1;
+    } else if (!checkNameLegal(name)) {
+        return 2;
+    } else if (!phone) {
+        return 3;
+    } else if (!checkPhoneNumGood(phone)) {
+        return 4;
+    } else if (!email) {
+        return 5;
+    } else if (!checkIfEmailValid(email)) {
+        return 6;
+    } else if (!gender) {  // check if gender was checked
+        return 7;
+    } else {
+        return 0;  // Everything is okay
+    }
+ }
+ 
