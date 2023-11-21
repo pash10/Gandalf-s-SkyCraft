@@ -49,15 +49,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
                     window.location.href = 'login.html';
                 })
                 .catch(function (error) {
-                    if (error.message === 'Username already exists') {
-                        errorMessage.textContent = "Username already exists";
-                    } else if (error.message === 'Email already exists') {
-                        errorMessage.textContent = "Email already exists";
-                    } else if (error.message === 'Serial number already exists') {
-                        errorMessage.textContent = "Serial number already exists";
-                    } else {
-                        errorMessage.textContent = "An unknown error occurred";
-                    }
+                    errorMessage.textContent = "try again somting went wrong"
                     console.error('Registration error:', error);
                 });
             break;

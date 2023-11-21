@@ -38,11 +38,35 @@ function checkLogin(email, password) {
     if (!email) {
         return 1;
     }
-    else if (!password) {
+    else if(!checkIfEmailValid(email)){
         return 2;
+    }
+    else if (!password) {
+        return 3;
     }
     return 0;
 }
+
+// conct us
+function contUs(name, phone, email, gender, additionalInfo) {
+    if (!name) {
+        return 1;
+    } else if (!checkNameLegal(name)) {
+        return 2;
+    } else if (!phone) {
+        return 3;
+    } else if (!checkPhoneNumGood(phone)) {
+        return 4;
+    } else if (!email) {
+        return 5;
+    } else if (!checkIfEmailValid(email)) {
+        return 6;
+    } else if (!gender) {  // check if gender was checked
+        return 7;
+    } else {
+        return 0;  // Everything is okay
+    }
+ }
 
 function checkIfEmailValid(email,) {
     var validEmailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
@@ -105,24 +129,5 @@ function getUserDataFromLocalStorage() {
     return userData ? JSON.parse(userData) : null;
 }
 
-// conct us
-function contUs(name, phone, email, gender, additionalInfo) {
-    if (!name) {
-        return 1;
-    } else if (!checkNameLegal(name)) {
-        return 2;
-    } else if (!phone) {
-        return 3;
-    } else if (!checkPhoneNumGood(phone)) {
-        return 4;
-    } else if (!email) {
-        return 5;
-    } else if (!checkIfEmailValid(email)) {
-        return 6;
-    } else if (!gender) {  // check if gender was checked
-        return 7;
-    } else {
-        return 0;  // Everything is okay
-    }
- }
+
  
