@@ -579,7 +579,6 @@ table tr:last-child td:last-child {
 
     .flip-card {
         width: 100%;
-        height: auto;
     }
 }
 
@@ -601,7 +600,6 @@ table tr:last-child td:last-child {
 
     .flip-card {
         width: 100%;
-        height: auto;
     }
 }
 
@@ -613,7 +611,6 @@ table tr:last-child td:last-child {
     }
 
     #main, .section, .container, .post {
-        width: auto;
         margin: 25px;
     }
 
@@ -623,7 +620,6 @@ table tr:last-child td:last-child {
 
     .flip-card {
         width: 80%;
-        height: auto;
     }
 }
 
@@ -635,16 +631,11 @@ table tr:last-child td:last-child {
     }
 
     #main, .section, .container, .post {
-        width: auto;
         margin: 30px;
     }
 
     h1 {
         font-size: 55px;
     }
-
-    .flip-card {
-        width: 70%;
-        height: auto;
-    }
+    
 }
