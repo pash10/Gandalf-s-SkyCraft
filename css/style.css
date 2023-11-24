@@ -517,3 +517,134 @@ table tr:last-child td:last-child {
 }
 
 
+/* Smartphones (portrait) */
+@media only screen and (max-width: 600px) {
+    body {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    #main, .section, .container, .post {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .flip-card {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Smartphones (landscape) */
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+    body {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    #main, .section, .container, .post {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    h1 {
+        font-size: 35px;
+    }
+
+    .flip-card {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Tablets (portrait) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    #main, .section, .container, .post {
+        width: 100%;
+        margin: 15px 0;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .flip-card {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Tablets (landscape) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    body {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    #main, .section, .container, .post {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    h1 {
+        font-size: 45px;
+    }
+
+    .flip-card {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Laptops/Small Screens */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+    body {
+        flex-direction: row;
+        padding: 25px;
+    }
+
+    #main, .section, .container, .post {
+        width: auto;
+        margin: 25px;
+    }
+
+    h1 {
+        font-size: 50px;
+    }
+
+    .flip-card {
+        width: 80%;
+        height: auto;
+    }
+}
+
+/* Desktops/Large Screens */
+@media only screen and (min-width: 1201px) {
+    body {
+        flex-direction: row;
+        padding: 30px;
+    }
+
+    #main, .section, .container, .post {
+        width: auto;
+        margin: 30px;
+    }
+
+    h1 {
+        font-size: 55px;
+    }
+
+    .flip-card {
+        width: 70%;
+        height: auto;
+    }
+}
