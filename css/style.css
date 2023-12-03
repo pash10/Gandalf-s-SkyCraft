@@ -492,7 +492,7 @@ table tr:last-child td:last-child {
     gap: 20px; /* Space between cards */
     justify-content: center; /* Centering the cards */
     margin-top: 3%;
-    padding-top: 10px; /* Adjust this value as needed to ensure no overlap with the nav bar */
+    padding-top: 20px; /* Adjust this value as needed to ensure no overlap with the nav bar */
 }
 
 .post {

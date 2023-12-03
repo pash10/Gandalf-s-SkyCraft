@@ -31,3 +31,5 @@ $(document).ready(function() {
     // Whenever the window is resized or the orientation changes, adjust the background
     $(window).on('resize orientationchange', adjustBackground);
 });
+
+//no working , improt from old project need to edit 

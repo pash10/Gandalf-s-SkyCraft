@@ -19,7 +19,7 @@ function signOutUser() {
         // Update login status in local storage
         localStorage.setItem('login', false);
 
-        localStorage.setItem("admin",false);
+        localStorage.setItem("admin","0");
 
         // Redirect to login page or other appropriate action
         window.location.href = 'login.html';

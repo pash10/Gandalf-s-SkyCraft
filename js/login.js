@@ -31,7 +31,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                     });
                     localStorage.setItem('login', true);
                     if(email == "pash1600@gmail.com"){
-                        localStorage.setItem("admin",true);
+                        localStorage.setItem("admin","1");
                     }
                     window.location.href = 'index.html';
                 } else {
