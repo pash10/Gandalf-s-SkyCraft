@@ -4,7 +4,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     var email = document.getElementById('email').value; // Assuming you're using the username field for email
     var password = document.getElementById('password').value;
     var errorMessage = document.getElementById('error');
-
+    
     console.log(checkLogin(email,password))
     switch (checkLogin(email, password)) {
         
@@ -30,6 +30,9 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                         productSerial: userData.productSerial
                     });
                     localStorage.setItem('login', true);
+                    if(email == "pash1600@gmail.com"){
+                        localStorage.setItem("admin",true);
+                    }
                     window.location.href = 'index.html';
                 } else {
                     // Throw an error if user data is not found in the database

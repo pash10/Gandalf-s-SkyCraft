@@ -3,7 +3,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 
     // Retrieve form values
     var name = document.getElementById('name').value;
-    var phone = document.getElementById('phone').value;
+    var phone = getFullPhoneNumber();
     var email = document.getElementById('email').value;
     var gender = document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : null;
     var subscribe = document.getElementById('subscribe').checked;
@@ -62,3 +62,17 @@ document.getElementById('contactForm').addEventListener('submit', function(event
             break;
     }
 });
+
+
+function getFullPhoneNumber() {
+    // Get the selected country code
+    var countryCode = document.getElementById('countryCode').value;
+
+    // Get the phone number
+    var phoneNumber = document.getElementById('phone').value;
+
+    // Concatenate country code and phone number
+    var fullPhoneNumber = countryCode + " " + phoneNumber;
+
+    return fullPhoneNumber;
+}

@@ -101,7 +101,7 @@ function checkNameLegal(name) {
 }
 
 function checkPhoneNumGood(phone) {
-    var pattern = /^[\d\s()-]{7,15}$/;
+    var pattern = /^\+\d{1,3}\s\d{7,12}$/; 
     return pattern.test(phone);
 }
 

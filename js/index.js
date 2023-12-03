@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const registerLink = document.getElementById('registerLink');
     const liveViewLink = document.getElementById('liveViewLink');
     const logoutButton = document.getElementById('logoutButton');
+    const queryShow = this.documentElement.getElementById('QuerisButton')
     navItems.forEach(item => {
         console.log("Nav item href: ", item.getAttribute("href")); // Should output 'pro.html' for the product link.
         if (item.getAttribute("href") === page) {
@@ -37,6 +38,9 @@ document.addEventListener("DOMContentLoaded", function () {
         registerLink.style.display = 'none';
         liveViewLink.style.display = 'block';
         logoutButton.style.display = 'block';
+        if(localStorage.getItem("admin") == true){
+
+        }
     } else {
         // User is not logged in
         homeLink.style.display = 'block'; // Adjust as needed
