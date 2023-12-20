@@ -16,17 +16,6 @@ body {
    
 }
 
-/*
- Smartphones (portrait) ----------- 
-@media only screen and (max-width: 480px) {
-    body.index {
-        background-size:contain;
-        background-position: auto;
-    }
-}
-*/
-/*code in jqury run in size.js */
-
 #main {
     margin: auto;
     margin-bottom: -10px;
@@ -518,3 +507,24 @@ table tr:last-child td:last-child {
 }
 
 
+.video-wrapper {
+    position: relative;
+    width: 100%; /* This will take the full width of its container */
+    padding-bottom: 56.25%; /* Aspect ratio of 16:9 */
+    height: 0; /* This will be overridden by the padding-bottom */
+    overflow: hidden;
+    background-color: #000; /* Gives a black background if the video is loading */
+    margin-bottom: 20px; /* Adds space below the video player */
+    border-radius: 8px; /* Rounded corners for the video wrapper */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    border-radius: 8px; /* Rounded corners for the video element */
+}

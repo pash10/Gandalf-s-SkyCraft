@@ -31,11 +31,12 @@
         <!-- Live Video Section -->
         <div class="live-section">
             <div class="video-wrapper">
-                <!-- Replace with your live video embed code from YouTube, Twitch, etc. -->
-                <div class="video-placeholder">
-                    <iframe src="https://www.youtube.com/embed/LIVE_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-                </div>
+                <!-- Video element for Firebase video -->
+                <video id="firebaseVideo" controls>
+                    Your browser does not support the video tag.
+                </video>
             </div>
+            
 
             <!-- Viewer Count -->
             <div class="viewer-wrapper">
@@ -56,6 +57,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-database-compat.js"></script>
     <script src="/js/firebase.js"></script>
     <script src="/js/fireBaseFunc.js"></script>
+    <script src="/js/stream.js"></script>
     <script src="/js/singout.js"></script>
 </body>
 </body>
