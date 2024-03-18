@@ -1,0 +1,669 @@
+title {
+    color: red
+       
+}
+
+body {
+    color: darkgreen;
+    background-color: gainsboro;
+    justify-content: center;
+    padding-top: 0; /* Adjusted to account for the nav bar height */
+    padding-bottom: 60px;
+    margin: 0; /* Remove default margin */
+}
+
+#main {
+    margin: auto;
+    text-align: center;
+    margin-bottom: -10px;
+    margin-top : 10vh;
+    /* Center horizontally */
+}
+
+h1 {
+    margin-top: 5px;
+    font-size: 50px;
+    color: green;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#picOfIndex {
+    position: relative;
+    bottom: 5%;  /* 5px from the bottom to "almost touch" the edge */
+    left: 50%;
+    width: 50%;   /* Covers 50% of the page width */
+    height: 70%;  /* Covers 50% of the page height */
+    overflow: hidden; /* In case the image is larger than the div */
+}
+
+#picOfIndex img {
+    width: 100%;  /* Makes sure the image fills the div */
+    height: 100%;
+    object-fit: cover; /* Makes sure the image covers the div without distortion */
+    border-radius: 15%;
+}
+
+nav {
+    display: flex; /* Changed from block to flex to use justify-content and align-items */
+    justify-content: flex-start; /* Aligns items to the start (left) */
+    align-items: center; /* Centers items vertically */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: darkgoldenrod;
+    color: white;
+    padding: 10px 0; /* Adjusted padding; cannot be negative */
+    font-size: 1vw;
+    z-index: 9999;
+}
+
+nav ul {
+    display: flex; /* Ensures the list is a flex container */
+    list-style-type: none; /* Removes bullets */
+    align-items: center; /* Centers items vertically */
+    justify-content: flex-start; /* Aligns items to the start (left) */
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Full width of the parent nav */
+}
+
+nav li {
+    display: flex; /* Makes the list item a flex container */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    flex-grow: 1; /* Each li will grow equally to fill the nav */
+    padding: 0; /* Padding can be adjusted as needed */
+}
+
+nav li a {
+    display: flex; /* Makes the anchor a flex container */
+    justify-content: center; /* Centers text horizontally */
+    align-items: center; /* Centers text vertically */
+    width: 100%; /* Ensures the link takes up the full width of its container */
+    padding: 10px 0; /* Gives some vertical padding */
+    color: white;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color:#111;
+}
+
+nav li#navImageLink a {
+    padding: 0;    /* Remove padding for the logo link */
+    line-height: normal; /* Reset line-height for this anchor */
+}
+
+nav li#navImageLink a img {
+    height:   8dvb;   /* Image height */
+    width: auto;    /* Image width auto for aspect ratio */
+}
+
+.rightmost {
+    margin-left: auto;
+}
+
+
+
+#index {
+    margin-top: 100cap; /* Adjust based on the height of your navbar */
+}
+
+#gandalfHistoryHeader {
+    
+    color: #fff;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.intro {
+    margin-top: 3%;
+    max-width:  auto ; /* Control the maximum width of the paragraph */
+    margin-right:  auto; /* Center the paragraph */
+    
+}
+.intro p {
+    text-align: left; /* Align the text to the left */
+    font-size: 18px; /* Adjust the font size as needed */
+    color: #333; /* Control the text color */
+    background-color: #f4f4f4; /* Control the background color */
+    padding: 10px 20px; /* Control the padding around the text */
+    margin-bottom: 10px; /* Control the space between paragraphs */
+    border-radius: 10px; /* Optional: for rounded corners */
+    box-shadow: 0 0 10px #000000; /* Optional: for a shadow effect */
+    margin-right: 100dvb;
+}
+
+.intro span#highlight {
+    font-weight: bold; /* Make the highlighted text bold */
+    color: #e44d26; /* Change the color of the highlighted text */
+}
+
+
+#globalFooter {
+    display: flex;
+    justify-content: center; /* Centers items on the line */
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: darkgoldenrod;
+    color: white;
+    padding: 20px; /* good good good */
+    font-size: 1vw;
+}
+
+#globalFooter p {
+    margin: 0 10px; /* You can adjust the margin to add space between the | and the p elements */
+    position: relative;
+}
+
+#globalFooter p:first-child:after {
+    content: "|";
+    color: white;
+    position: absolute;
+    right: -10px; /* Adjust as necessary */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#globalFooter a {
+    color: white;
+}
+
+#globalFooter a:hover {
+    color: #ffcc00;
+    text-decoration: underline;
+}
+
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #a2a2a2; /* Silverish border for an elvish touch */
+    padding-bottom: 10px;
+   
+}
+
+#section_do_space_this_fix {
+    background-color: #f0e9e0; /* Papyrus-like background for an ancient touch */
+    padding: 20px; 
+    border: 2px solid #a2a2a2; /* Silverish border */
+    border-radius: 10px; /* Slightly more rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Label Styling */ 
+.section label {
+    flex: left;
+    font-weight: bold;
+}
+.section input[type="password"] {
+    flex: 1;
+    width: 100%; /* Make sure the input fields take the full width of their container */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Input and Select Styling */
+.section input[type="text"],
+.section input[type="email"],
+.section select,
+.section textarea {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Radio Button Styling */
+#tempWhy {
+    margin-right: 10px;
+}
+
+/* Radio and Checkbox Styling */
+.section input[type="radio"],
+.section input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Textarea Styling */
+.section textarea {
+    width: 100%;
+}
+
+/* Submit Button Styling */
+.section input[type="submit"] {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.section input[type="submit"]:hover {
+    background-color: #555;
+}
+.container {
+    display: flex; /* Changed from auto */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .flip-card {
+    background-color: transparent;
+    width: 500px;
+    height: 600px;
+    border: 1px transparent;
+    perspective: 1000px;
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    transform-origin: center;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  /* Initially hide the contents of the back */
+  .flip-card-back > * {
+    transition: opacity 0.8s;
+    opacity: 0; /* Start with the content fully transparent */
+    /* Delay the opacity transition until the flip is almost done */
+    transition-delay: 0.4s;
+  }
+  
+  .flip-card.do-flip .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Make the back content visible and un-mirrored once the card has flipped */
+  .flip-card.do-flip .flip-card-back > * {
+    opacity: 1;
+    transform: rotateY(180deg); /* Un-mirror the text */
+    transition-delay: 0s; /* Reset the delay so the content shows immediately after the flip */
+  }
+  .flip-card.do-flip .flip-card-front >*{
+    opacity: 1;
+    transform:  rotateY(180deg);
+    transition-delay: 0s;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 200%;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  .card img {
+    margin-top: 10px;
+    width: 350px;
+    height: 350px;
+    border-color: gold;
+    border-radius: 5%;
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  .do-flip {
+    -o-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+  }
+ 
+  .flipButton {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    opacity: 0.7; /* Consolidated duplicate definitions */
+  }
+  
+  .flip-card-front {
+    background-color: #bbb;
+    color: black;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .flip-card-back {
+    background-color: black;
+    color: white;
+    transform: rotateY(180deg);/*Uncomment this if you want the back to start flipped */
+    border-radius: 12px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  }
+ 
+
+  
+  
+  .table-container {
+    max-width: 500px; /* Reduced maximum width of the table */
+    margin: 30px auto; /* Center the table with more vertical space */
+    overflow: auto; /* Enable horizontal scroll for wide tables */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate; /* Changed to 'separate' to ensure border-radius applies to individual cells */
+    background-color: #fff;
+    border-radius: 12px;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to the table for depth */
+    overflow: hidden; /* Ensures child elements (like tr and td) don't overflow the rounded corners */
+    margin: 20px 0; /* Optional: Add some margin for spacing */
+}
+
+table th, table td {
+    text-align: left;
+    padding: 12px 20px;
+    border-bottom: 2px solid #f1f1f1;
+    color: #555;
+}
+
+table th {
+    background-color: #f7f7f7;
+    color: #444;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+table tr:hover {
+    background-color: #f9f9f9;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Adjust the border-radius for the bottom corners of the table */
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}
+
+/* Ensure the specific td with id "last-tr" does not have squared corners */
+#last-tr {
+    border-radius: 0; /* Resetting the border-radius */
+}
+
+
+#watch {
+    width: 350px;
+    height: 350px;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow for depth */
+    margin: 20px auto; /* Centers the iframe horizontally */
+}
+.video-placeholder {
+    position: relative;
+    width: 100%; /* Full width */
+    padding-bottom: 56.25%; /* Aspect ratio for 16:9 */
+    border: 1px solid #aaa;
+    overflow: hidden; /* Hide anything outside of the container */
+    box-sizing: border-box;
+}
+
+.video-placeholder iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+}
+
+.viewe-count {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-top: 10px;
+}
+
+.live-section {
+    background-color: transparent;
+    width: 500px;
+    height: 400px; /* Adjust as needed */
+    border: 1px transparent;
+    perspective: 1000px;
+    margin: 20px auto;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background-color: #f9f9f9; 
+    padding: 20px;
+    max-width: 80%; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.video-wrapper {
+    margin-bottom: 20px;
+}
+
+.viewer-wrapper {
+    background-color: #fff; 
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#posts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between cards */
+    justify-content: center; /* Centering the cards */
+    margin-top: 3%;
+    padding-top: 20px; /* Adjust this value as needed to ensure no overlap with the nav bar */
+}
+
+.post {
+    border: 1px solid #ccc; /* Border for the card */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
+    padding: 15px; /* Padding inside the card */
+    width: 300px; /* Fixed width, you can adjust this */
+    background-color: #fff; /* Background color for the card */
+    box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+    margin-bottom: 20px; /* Margin at the bottom of each card */
+}
+
+.post h2 {
+    color: #333; /* Color for the title */
+    margin-top: 0; /* Removes the top margin */
+}
+
+.post p {
+    color: #666; /* Color for the paragraph text */
+    line-height: 1.5; /* Line height for readability */
+    margin: 10px 0; /* Margin for paragraphs */
+}
+
+
+.video-wrapper {
+    position: relative;
+    width: 100%; /* This will take the full width of its container */
+    height: 300px; /* This will be overridden by the padding-bottom */
+    overflow: hidden;
+    margin-bottom: 20px; /* Adds space below the video player */
+    border-radius: 8px; /* Rounded corners for the video wrapper */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    border-radius: 8px; /* Rounded corners for the video element */
+}
+
+#firebaseVideo{
+    
+}
+
+.active-nav-item {
+    font-weight: bold;
+    font-size: larger;
+    color: red;
+    text-decoration: underline;
+}
+
+#main{
+    width: 60vw;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#welcomeHeader{
+    min-width: 700px;
+}
+@media (max-width: 768px){
+    #welcomeHeader{
+        min-width: 350px;
+    }
+    }
+
+#intro_image_text_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    width: 50%;
+    min-width: 700px;
+    margin: 16px 0 0 0;
+}
+.intro{
+    display: flex;
+    justify-content: center;
+    min-width: 700px;
+    margin: 0 0 16px 0;
+}
+.intro p {
+    margin-right: 0;
+    width: 80%;
+    height: fit-content;
+}
+#picOfIndex{
+    left: 0;
+    height: object-fit;
+    width: 100%
+        
+}
+#picOfIndex img{
+    margin-bottom: 16px;
+}
+
+@media (max-width: 1200px) {
+  
+    #main{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+ 
+    .intro {
+        display: flex;
+        justify-content: center;
+        min-width: 300px;
+    }
+    .intro p{
+        margin-right: auto;
+        margin-left: auto;
+    }
+    #picOfIndex{
+        bottom: 0;
+        left: 0;
+        padding: 10px;
+        display: flex;
+        align-self: center;
+        height: auto;
+   }
+    #picOfIndex img{
+        margin-right: auto;
+        margin-left: auto;
+        min-height: 500px;
+        max-height: 70vh;
+        object-position: right;
+    }
+}
+
+@media (max-width: 768px) {
+    #intro_image_text_section{
+        min-width: 350px;
+    }
+    .intro p{
+        max-width: 80%;
+
+    }
+    #picOfIndex img {
+        min-height: 300px;
+        margin: 0;
+    }
+}
+
+#section_do_space_this_fix{
+    min-width: 1200px;
+    
+}
+
+@media (max-width: 1200px){
+   #section_do_space_this_fix{
+        align-self: center;
+        min-width: 700px;
+    }
+   #contactForm{
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+   }
+}
+
+@media (max-width: 768px){
+    #section_do_space_this_fix{
+        min-width: 300px;
+    }
+    .section{
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,66 @@
+#include "esp_camera.h"
+#include <WiFi.h>
+#include <Firebase_ESP_Client.h>
+
+// Replace with your network credentials
+const char* ssid = "yourSSID";
+const char* password = "yourPASSWORD";
+
+// Firebase project details
+#define FIREBASE_HOST "see-the-sea-4c396-default-rtdb.europe-west1.firebasedatabase.app"
+
+FirebaseData fbdo;
+FirebaseConfig fconfig;
+
+void setup() {
+  Serial.begin(115200);
+
+  // Camera configuration
+  camera_config_t config;
+  // ... (other camera configuration parameters)
+
+  // Initialize the camera
+  esp_err_t err = esp_camera_init(&config);
+  if (err != ESP_OK) {
+    Serial.printf("Camera init failed with error 0x%x", err);
+    return;
+  }
+
+  // Connect to Wi-Fi
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println("WiFi connected");
+
+  // Firebase configuration
+  fconfig.database_url = FIREBASE_HOST;
+  Firebase.begin(&fconfig, nullptr); // No authentication in this example
+}
+
+void loop() {
+  // Capture an image
+  camera_fb_t * fb = esp_camera_fb_get();
+  if (!fb) {
+    Serial.println("Camera capture failed");
+    return;
+  }
+
+  // Convert image to base64 (same as previous example)
+  String imageBase64 = base64::encode(fb->buf, fb->len);
+
+  // Send to Firebase
+  if (Firebase.RTDB.setString(&fbdo, "/camera_image", imageBase64.c_str())) {
+    Serial.println("Sent to Firebase");
+  } else {
+    Serial.println("Firebase send failed");
+    Serial.println(fbdo.errorReason());
+  }
+
+  // Return frame buffer
+  esp_camera_fb_return(fb);
+
+  delay(5000); // Delay between captures
+}
