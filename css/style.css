@@ -1,669 +1,988 @@
 title {
     color: red
-       
+   /* 
+    ** Note: Attempts to change text color of <title> elements.
+    ** This has no visible effect as <title> text does not appear within the document body.
+    */
 }
 
 body {
-    color: darkgreen;
-    background-color: gainsboro;
-    justify-content: center;
-    padding-top: 0; /* Adjusted to account for the nav bar height */
-    padding-bottom: 60px;
-    margin: 0; /* Remove default margin */
+    color: darkgreen; /* # Sets the text color for all text inside the <body> to dark green. */
+    background-color: gainsboro; /* # Sets the background color of the entire page to gainsboro, a light gray color. */
+    justify-content: center; /* # This line is meant for flex or grid containers but does nothing in this context since <body> is not a flex or grid container by default. */
+    padding-top: 0; /* # Sets the top padding of the <body> to 0, effectively removing any space between the content and the top edge of the viewport. */
+    padding-bottom: 60px; /* # Adds 60 pixels of padding to the bottom of the <body>, creating space below the content. */
+    margin: 0; /* # Sets the margin around the <body> to 0, removing default browser margins and allowing content to fill the entire width and height of the viewport. */
+      /* 
+    ** Note: Sets global text and background color.
+    ** Removes default margins and adjusts padding for visual layout.
+    ** The 'justify-content' property here has no effect without display flex or grid.
+    */
 }
+
+
+
 
 #main {
-    margin: auto;
-    text-align: center;
-    margin-bottom: -10px;
-    margin-top : 10vh;
-    /* Center horizontally */
+    margin: auto; /* # Centers the element horizontally within its parent by setting the margins on either side to 'auto'. */
+    text-align: center; /* # Aligns text inside the #main element to the center horizontally. */
+    margin-bottom: -10px; /* # Pulls the element up 10 pixels closer to the elements above it, due to the negative bottom margin. */
+    margin-top: 10vh; /* # Sets the top margin to 10% of the viewport height, providing spacing between the top of the viewport and the element. */
+    /* Center horizontally */ /* # This comment suggests an intention to center the element, which is primarily achieved by 'margin: auto'. */
+    /* 
+    ** Note: Centers the #main element horizontally.
+    ** Adjusts vertical spacing with margin settings.
+    ** Negative bottom margin pulls element upwards.
+    */
 }
+
+
 
 h1 {
-    margin-top: 5px;
-    font-size: 50px;
-    color: green;
-    text-align: center;
-    margin-bottom: 10px;
+    margin-top: 5px; /* # Adds a small 5-pixel margin above the <h1> elements to space them slightly from elements above. */
+    font-size: 50px; /* # Sets the font size of <h1> headings to 50 pixels, making it large and prominent. */
+    color: green; /* # Changes the text color of <h1> elements to green. */
+    text-align: center; /* # Centers the text of <h1> elements horizontally within them. */
+    margin-bottom: 10px; /* # Adds 10 pixels of space below the <h1> elements to separate them from subsequent content. */
+     /* 
+    ** Note: Styles <h1> headers with specific font size and color.
+    ** Centers text and adjusts margins for spacing above and below.
+    */
 }
+
 
 #picOfIndex {
-    position: relative;
-    bottom: 5%;  /* 5px from the bottom to "almost touch" the edge */
-    left: 50%;
-    width: 50%;   /* Covers 50% of the page width */
-    height: 70%;  /* Covers 50% of the page height */
-    overflow: hidden; /* In case the image is larger than the div */
+    position: relative; /* # Sets the positioning context to 'relative', allowing this element to be positioned relative to its normal position in the document flow. */
+    bottom: 5%;  /* # Moves the element up from its normal position by 5% of its containing block's height. */
+    left: 50%; /* # Positions the left edge of the element at the center (50%) of its containing block. */
+    width: 50%;   /* # Sets the width of the element to 50% of its containing block, making it half as wide as its parent. */
+    height: 70%;  /* # Sets the height of the element to 70% of its containing block, controlling its vertical size. */
+    overflow: hidden; /* # Clips any child content that extends outside the element's box, preventing it from being visible outside its boundaries. */
+     /* 
+    ** Note: Positions element relative to its normal position with adjustments.
+    ** Sets width and height as a percentage of its parent container.
+    ** Ensures content overflow is hidden to maintain layout cleanliness.
+    */
 }
+
 
 #picOfIndex img {
-    width: 100%;  /* Makes sure the image fills the div */
-    height: 100%;
-    object-fit: cover; /* Makes sure the image covers the div without distortion */
-    border-radius: 15%;
+    width: 100%;  /* Ensures the image scales to fill the entire width of its container. */
+    height: 100%; /* Ensures the image scales to fill the entire height of its container. */
+    object-fit: cover; /* Adjusts the image's aspect ratio to cover the entire container without distortion, cropping excess parts. */
+    border-radius: 15%; /* Rounds the corners of the image with a radius of 15% relative to its container. */
+    /* 
+    ** Note: Styles images within #picOfIndex to completely cover the area while maintaining aspect ratio and smooth edges.
+    */
 }
+
 
 nav {
-    display: flex; /* Changed from block to flex to use justify-content and align-items */
-    justify-content: flex-start; /* Aligns items to the start (left) */
-    align-items: center; /* Centers items vertically */
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: darkgoldenrod;
-    color: white;
-    padding: 10px 0; /* Adjusted padding; cannot be negative */
-    font-size: 1vw;
-    z-index: 9999;
+    display: flex; /* Changes display mode to flex, allowing child elements to be laid out in a linear fashion. */
+    justify-content: flex-start; /* Aligns flex items to the start (left side) of the nav container. */
+    align-items: center; /* Vertically centers flex items within the nav. */
+    position: fixed; /* Fixes the nav's position relative to the viewport, making it remain visible during scrolling. */
+    top: 0; /* Positions the nav at the top of the viewport. */
+    width: 100%; /* Sets the nav's width to span the entire width of the viewport. */
+    background-color: darkgoldenrod; /* Sets the background color of the nav to dark goldenrod. */
+    color: white; /* Sets the text color within the nav to white. */
+    padding: 10px 0; /* Applies vertical padding of 10px to the top and bottom, no horizontal padding. */
+    font-size: 1vw; /* Sets the font size to 1% of the viewport's width, scaling with the window size. */
+    z-index: 9999; /* Sets a high z-index to ensure the nav stays above other content. */
+    /* 
+    ** Note: Establishes a fixed, flexible navigation bar at the top of the page with specific styling and layout properties.
+    */
 }
+
 
 nav ul {
-    display: flex; /* Ensures the list is a flex container */
-    list-style-type: none; /* Removes bullets */
-    align-items: center; /* Centers items vertically */
-    justify-content: flex-start; /* Aligns items to the start (left) */
-    margin: 0;
-    padding: 0;
-    width: 100%; /* Full width of the parent nav */
+    display: flex; /* Establishes a flex container for list items, allowing them to be laid out linearly. */
+    list-style-type: none; /* Removes bullet points from list items, common in navigation menus. */
+    align-items: center; /* Vertically centers list items within the ul element. */
+    justify-content: flex-start; /* Aligns list items to the start of the ul container. */
+    margin: 0; /* Removes default margin to prevent extra spacing outside the ul. */
+    padding: 0; /* Removes default padding to align list items tightly within the nav. */
+    width: 100%; /* Ensures the ul spans the entire width of its parent container, nav. */
+    /* 
+    ** Note: Configures the list within the nav to act as a flexible row without default list styling, filling the entire nav.
+    */
 }
 
+
 nav li {
-    display: flex; /* Makes the list item a flex container */
-    justify-content: center; /* Centers content horizontally */
-    align-items: center; /* Centers content vertically */
-    flex-grow: 1; /* Each li will grow equally to fill the nav */
-    padding: 0; /* Padding can be adjusted as needed */
+    display: flex; /* Makes each list item a flex container. */
+    justify-content: center; /* Horizontally centers content (links or images) within each list item. */
+    align-items: center; /* Vertically centers content within each list item. */
+    flex-grow: 1; /* Allows each list item to grow equally, sharing the available space in the nav. */
+    padding: 0; /* Sets padding to 0, useful for tightly packing items without extra space. */
+    /* 
+    ** Note: Styles each navigation list item to evenly distribute space and center its contents using flexbox.
+    */
 }
 
 nav li a {
-    display: flex; /* Makes the anchor a flex container */
-    justify-content: center; /* Centers text horizontally */
-    align-items: center; /* Centers text vertically */
-    width: 100%; /* Ensures the link takes up the full width of its container */
-    padding: 10px 0; /* Gives some vertical padding */
-    color: white;
-    text-decoration: none;
+    display: flex; /* Enables flexbox layout inside anchor tags, useful for centering content. */
+    justify-content: center; /* Centers the anchor text horizontally within the link. */
+    align-items: center; /* Centers the anchor text vertically within the link. */
+    width: 100%; /* Expands each link to fill the width of its parent li, useful for larger clickable areas. */
+    padding: 10px 0; /* Adds vertical padding for better touch targets and visual spacing. */
+    color: white; /* Sets the link color to white, matching the nav's text color. */
+    text-decoration: none; /* Removes underline from links, a common style choice for cleaner navigation looks. */
+    /* 
+    ** Note: Ensures that links within the nav are fully clickable, centered, and visually consistent with the nav's styling.
+    */
 }
 
 nav li a:hover {
-    background-color:#111;
+    background-color: #111;
+    /* 
+    ** Note: Changes the background color to a dark gray (#111) when the mouse hovers over a link.
+    ** This provides a visual cue to users that the element is interactive and can be clicked.
+    */
 }
 
 nav li#navImageLink a {
-    padding: 0;    /* Remove padding for the logo link */
-    line-height: normal; /* Reset line-height for this anchor */
+    padding: 0; /* Removes padding for the logo link, ensuring the logo fits neatly without extra space. */
+    line-height: normal; /* Resets the line height to the default for this specific anchor, often used to standardize the appearance when different elements have altered line heights. */
+    /* 
+    ** Note: Specifically targets the anchor tag within a list item with ID `navImageLink`, commonly used for logos or branded images in navigation bars. Adjustments make sure the logo appears as intended without additional formatting applied to other links.
+    */
 }
 
+
 nav li#navImageLink a img {
-    height:   8dvb;   /* Image height */
-    width: auto;    /* Image width auto for aspect ratio */
+    height: 8dvb; /* Sets the image height using the 'dvb' (likely intended to be 'vh' or another unit), which should specify a scalable unit based on viewport dimensions. */
+    width: auto; /* Sets the width to auto, allowing the image to maintain its original aspect ratio while adjusting to the specified height. */
+    /* 
+    ** Note: Styles the image within a specific anchor tag, intended to ensure that logos or icons scale properly without distortion.
+    */
 }
 
 .rightmost {
     margin-left: auto;
+    /* 
+    ** Note: Automatically pushes elements with the 'rightmost' class to the right side of their containing element by using auto margin on the left.
+    ** This is a common technique for aligning elements to the right within a flex container.
+    */
 }
-
-
 
 #index {
-    margin-top: 100cap; /* Adjust based on the height of your navbar */
+    margin-top: 100cap; /* Adjusts the top margin based on the height of your navbar; note 'cap' seems to be a typo and might be intended as 'px' or another valid unit. */
+    /* 
+    ** Note: Provides spacing at the top of the element with ID 'index', intended to ensure it does not overlap with a fixed navbar. Be sure to correct 'cap' to a valid CSS unit.
+    */
 }
 
-#gandalfHistoryHeader {
-    
+/*#gandalfHistoryHeader {  
     color: #fff;
     margin-top: 40px;
     text-align: center;
-}
+}*/
+/* 
+** Note: This section is commented out and will not apply. If active, it would set the text color to white, add a top margin of 40px, and center the text within the element with ID 'gandalfHistoryHeader'.
+*/
+
 
 .intro {
-    margin-top: 3%;
-    max-width:  auto ; /* Control the maximum width of the paragraph */
-    margin-right:  auto; /* Center the paragraph */
-    
+    margin-top: 3%; /* Adds a top margin as a percentage of the containing block height, providing responsive spacing. */
+    max-width: auto; /* Sets the maximum width to 'auto', which effectively does not constrain the width; may want to specify a max-width in px or % for better control. */
+    margin-right: auto; /* Centers the element horizontally within its container by setting the right margin to auto, typically used with margin-left: auto; */
+    /* 
+    ** Note: Styles the element with class 'intro', primarily focusing on top margin for spacing and an attempt to center horizontally.
+    */
 }
+
+
 .intro p {
-    text-align: left; /* Align the text to the left */
-    font-size: 18px; /* Adjust the font size as needed */
-    color: #333; /* Control the text color */
-    background-color: #f4f4f4; /* Control the background color */
-    padding: 10px 20px; /* Control the padding around the text */
-    margin-bottom: 10px; /* Control the space between paragraphs */
-    border-radius: 10px; /* Optional: for rounded corners */
-    box-shadow: 0 0 10px #000000; /* Optional: for a shadow effect */
-    margin-right: 100dvb;
+    text-align: left; /* Aligns the text within paragraphs to the left. */
+    font-size: 18px; /* Sets the font size to 18 pixels, enhancing readability. */
+    color: #333; /* Sets the text color to a dark gray for high contrast against lighter backgrounds. */
+    background-color: #f4f4f4; /* Sets a light gray background color for paragraphs, increasing visual differentiation from the page background. */
+    padding: 10px 20px; /* Applies padding inside the paragraph to space the text away from its borders. */
+    margin-bottom: 10px; /* Adds space below each paragraph to separate from subsequent content. */
+    border-radius: 10px; /* Rounds the corners of the paragraph boxes for a softer visual appearance. */
+    box-shadow: 0 0 10px #000000; /* Adds a shadow effect around the paragraphs to create a sense of depth. */
+    margin-right: 100dvb; /* Sets a right margin with a unit 'dvb', which is likely a typo and should be corrected to a valid unit like 'px' or '%'. */
+    /* 
+    ** Note: Configures the appearance of paragraphs within the 'intro' class, focusing on typography, color, spacing, and optional aesthetic enhancements like rounded corners and shadows.
+    */
 }
 
 .intro span#highlight {
-    font-weight: bold; /* Make the highlighted text bold */
-    color: #e44d26; /* Change the color of the highlighted text */
+    font-weight: bold; /* Makes the text within the span bold, emphasizing it. */
+    color: #e44d26; /* Sets the text color to a bright orange, providing visual emphasis to attract attention. */
+    /* 
+    ** Note: Specifically targets the span with ID 'highlight' within 'intro' class elements, used to emphasize parts of the text distinctly from other content.
+    */
 }
 
-
 #globalFooter {
-    display: flex;
-    justify-content: center; /* Centers items on the line */
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: darkgoldenrod;
-    color: white;
-    padding: 20px; /* good good good */
-    font-size: 1vw;
+    display: flex; /* Establishes a flex container for direct children, facilitating the alignment and distribution of items. */
+    justify-content: center; /* Horizontally centers all child elements within the footer. */
+    align-items: center; /* Vertically centers all child elements within the footer. */
+    position: fixed; /* Fixes the position of the footer relative to the viewport, ensuring it remains at the bottom. */
+    bottom: 0; /* Anchors the footer at the bottom of the viewport. */
+    width: 100%; /* Ensures the footer extends across the full width of the viewport. */
+    background-color: darkgoldenrod; /* Sets a dark goldenrod color as the background of the footer. */
+    color: white; /* Sets the text color to white, ensuring high contrast against the dark background. */
+    padding: 20px; /* Adds padding inside the footer for better visual spacing around the content. */
+    font-size: 1vw; /* Sets the font size relative to the width of the viewport, scaling dynamically with it. */
+    /* 
+    ** Note: Styles the global footer to be a visually appealing, centered, and fixed element at the bottom of the page.
+    */
 }
 
 #globalFooter p {
-    margin: 0 10px; /* You can adjust the margin to add space between the | and the p elements */
-    position: relative;
+    margin: 0 10px; /* Adds horizontal margin to create spacing between paragraph elements and other content like separators. */
+    position: relative; /* Sets the position context to 'relative' for absolutely positioned pseudo-elements or children. */
+    /* 
+    ** Note: Configures paragraphs within the footer to manage spacing and positioning, serving as containers for footer text.
+    */
 }
 
+
 #globalFooter p:first-child:after {
-    content: "|";
-    color: white;
-    position: absolute;
-    right: -10px; /* Adjust as necessary */
-    top: 50%;
-    transform: translateY(-50%);
+    content: "|"; /* Inserts a pipe character as content after the first paragraph, used as a visual separator. */
+    color: white; /* Ensures the separator matches the text color, maintaining design consistency. */
+    position: absolute; /* Positions the separator absolutely relative to its parent paragraph, which has 'position: relative'. */
+    right: -10px; /* Places the separator just outside the right boundary of the paragraph. */
+    top: 50%; /* Aligns the separator halfway down the parent element. */
+    transform: translateY(-50%); /* Adjusts the position to vertically center the separator with respect to its line height. */
+    /* 
+    ** Note: Adds a stylistic separator after the first paragraph in the footer, enhancing the visual distinction between elements.
+    */
 }
 
 #globalFooter a {
-    color: white;
+    color: white; /* Sets the color of links to white, aligning with the footer's text color for consistency. */
+    /* 
+    ** Note: Ensures links within the footer are clearly visible against the dark background, maintaining readability and style.
+    */
 }
 
 #globalFooter a:hover {
-    color: #ffcc00;
-    text-decoration: underline;
+    color: #ffcc00; /* Changes the link color to a bright yellow when hovered, highlighting the link interaction. */
+    text-decoration: underline; /* Adds an underline to indicate that the text is interactive, a common usability enhancement. */
+    /* 
+    ** Note: Provides visual feedback when hovering over links in the footer, enhancing user experience and accessibility.
+    */
 }
-
 
 .section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    border-bottom: 2px solid #a2a2a2; /* Silverish border for an elvish touch */
-    padding-bottom: 10px;
-   
+    display: flex; /* Establishes a flex container for direct children, facilitating alignment and distribution. */
+    align-items: center; /* Vertically centers all child elements within the section. */
+    justify-content: space-between; /* Distributes child elements evenly with space between them. */
+    margin-bottom: 30px; /* Adds a bottom margin to each section for spacing between consecutive sections. */
+    border-bottom: 2px solid #a2a2a2; /* Adds a light gray border at the bottom of each section for visual separation. */
+    padding-bottom: 10px; /* Adds padding at the bottom inside each section, below the content and above the border. */
+    /* 
+    ** Note: Styles each form section with flexibility, center alignment, and visual spacing, enhancing form structure and readability.
+    */
 }
 
+
 #section_do_space_this_fix {
-    background-color: #f0e9e0; /* Papyrus-like background for an ancient touch */
-    padding: 20px; 
-    border: 2px solid #a2a2a2; /* Silverish border */
-    border-radius: 10px; /* Slightly more rounded corners */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f0e9e0; /* Sets a light beige background, similar to papyrus, enhancing the aesthetic. */
+    padding: 20px; /* Adds padding around the content within the section, increasing readability. */
+    border: 2px solid #a2a2a2; /* Adds a solid light gray border around the section for defined edges. */
+    border-radius: 10px; /* Rounds the corners of the section for a softer, more polished look. */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Applies a subtle shadow for a slight 3D effect, improving depth. */
+    /* 
+    ** Note: Specifically enhances the appearance and layout of the section containing the form, making it visually distinct and user-friendly.
+    */
 }
-/* Label Styling */ 
+
 .section label {
-    flex: left;
-    font-weight: bold;
+    flex: left; /* Incorrect use of flex. Should be 'flex: 1' if the intent is to allow the label to grow. The 'left' keyword is not valid here. */
+    font-weight: bold; /* Makes the font of the labels bold, emphasizing the form fields' descriptions. */
+    /* 
+    ** Note: Aims to style labels in each section, but contains an error in flex usage. Correct to align and size labels appropriately.
+    */
 }
+
 .section input[type="password"] {
-    flex: 1;
-    width: 100%; /* Make sure the input fields take the full width of their container */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    flex: 1; /* Allows the password input fields to grow and fill available space in the flex container. */
+    width: 100%; /* Ensures the input field expands to fill the width of its container, ensuring a uniform look. */
+    padding: 10px; /* Adds internal padding for better text visibility and easier interaction. */
+    border: 1px solid #ccc; /* Provides a light gray border, defining the boundaries of the input fields. */
+    border-radius: 4px; /* Slightly rounds the corners of the input fields for a modern look. */
+    /* 
+    ** Note: Uniformly styles all password input fields within sections, focusing on accessibility, visibility, and usability.
+    */
 }
+
 
 /* Input and Select Styling */
 .section input[type="text"],
 .section input[type="email"],
 .section select,
 .section textarea {
-    flex: 2;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    flex: 2; /* Allows these elements to take up twice the space compared to other flex items, if available. */
+    padding: 10px; /* Adds internal padding for ease of reading and writing within the fields. */
+    border: 1px solid #ccc; /* Defines the edges of the fields with a light gray border. */
+    border-radius: 4px; /* Rounds the corners for a smooth, modern aesthetic. */
+    /* 
+    ** Note: Consistently styles text, email inputs, select dropdowns, and textareas for a cohesive look and enhanced user interaction.
+    */
 }
 
 /* Radio Button Styling */
 #tempWhy {
-    margin-right: 10px;
+    margin-right: 10px; /* Adds a 10px right margin to the element with ID 'tempWhy', presumably a radio button. This spacing separates it from adjacent elements, improving layout clarity and interaction ease. */
+    /* 
+    ** Note: Provides necessary spacing for an element (likely a radio button) identified by 'tempWhy', enhancing its usability and visual separation in forms. Proper spacing is crucial for touch targets and clear visual distinction in user interfaces.
+    */
 }
 
-/* Radio and Checkbox Styling */
 .section input[type="radio"],
 .section input[type="checkbox"] {
-    margin-right: 5px;
+    margin-right: 5px; /* Adds a small right margin to space out radio buttons and checkboxes from their labels. */
+    /* 
+    ** Note: Provides necessary spacing for radio buttons and checkboxes within forms, aligning with best UI practices for clarity and accessibility.
+    */
 }
 
-/* Textarea Styling */
+
 .section textarea {
-    width: 100%;
+    width: 100%; /* Ensures textareas expand to use the full width available in their container, accommodating more text visibly. */
+    /* 
+    ** Note: Enhances the usability of textarea fields by maximizing the writing space, suitable for longer text entries.
+    */
 }
 
 /* Submit Button Styling */
 .section input[type="submit"] {
-    width: 100%;
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    width: 100%; /* Makes the submit button extend across the full width of its container for better visibility and easier clicking. */
+    background-color: #333; /* Sets a dark background for the button, making it stand out as an actionable item. */
+    color: white; /* Sets the text color to white, ensuring high contrast for readability against the dark background. */
+    padding: 10px; /* Adds padding to increase the button's clickable area and enhance visual appeal. */
+    border: none; /* Removes the default border to maintain a clean, modern look. */
+    border-radius: 4px; /* Applies rounded corners to the button for a friendly, approachable design. */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over the button, indicating an interactive element. */
+    /* 
+    ** Note: Styles the submit button to be prominently visible and easily interactable, encouraging user action.
+    */
 }
 
 .section input[type="submit"]:hover {
-    background-color: #555;
+    background-color: #555; /* Darkens the button on hover, providing visual feedback that it is interactive. */
+    /* 
+    ** Note: Enhances user experience by visually responding to interactions, confirming to users that the button is clickable.
+    */
 }
+
 .container {
-    display: flex; /* Changed from auto */
-    align-items: center;
-    justify-content: center;
-  }
+    display: flex; /* Sets the container to use flexbox layout, allowing child elements to be aligned and justified easily. */
+    align-items: center; /* Vertically centers the child elements within the container. */
+    justify-content: center; /* Horizontally centers the child elements within the container. */
+    /* 
+    ** Note: Establishes a flexbox container that centers its children both vertically and horizontally, ideal for creating layouts that require centered content regardless of container size.
+    */
+}
+
   
-  .flip-card {
-    background-color: transparent;
-    width: 500px;
-    height: 600px;
-    border: 1px transparent;
-    perspective: 1000px;
-  }
-  
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    transform-origin: center;
-  }
-  
-  .flip-card-front,
-  .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-  }
+.flip-card {
+    background-color: transparent; /* Makes the background of the flip card transparent, allowing any underlying content to show through. */
+    width: 500px; /* Sets a fixed width of 500 pixels for the flip card. */
+    height: 600px; /* Sets a fixed height of 600 pixels for the flip card, defining its aspect ratio. */
+    border: 1px transparent; /* Applies a transparent border of 1px which won't be visible, but maintains layout structure. */
+    perspective: 1000px; /* Sets how the depth is perceived when transforming children (3D perspective effect). */
+    /* 
+    ** Note: Defines the size, background, and 3D perspective settings for a card that will perform a flip effect. The transparent border helps in maintaining the card's layout without adding visual weight.
+    */
+}
+
+.flip-card-inner {
+    position: relative; /* Establishes a positioning context for absolutely positioned children. */
+    width: 100%; /* Ensures the inner card fills the entire width of its parent. */
+    height: 100%; /* Ensures the inner card fills the entire height of its parent. */
+    text-align: center; /* Centers text horizontally within the flip card. */
+    transition: transform 0.8s; /* Animates any transform changes over 0.8 seconds, smoothing the flipping effect. */
+    transform-style: preserve-3d; /* Allows children elements to exist in 3D space, essential for the flip effect. */
+    transform-origin: center; /* Sets the pivot point for transformations to the center of the card. */
+    /* 
+    ** Note: Sets up the core structure and animation settings for a flip card effect, ensuring any 3D transforms look realistic and are centered correctly.
+    */
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute; /* Positions these elements directly over one another in the same space. */
+    width: 100%; /* Each face of the card stretches to cover the full width of the parent. */
+    height: 100%; /* Each face of the card stretches to cover the full height of the parent. */
+    backface-visibility: hidden; /* Prevents the back face from being visible when it is turned away from the viewer. */
+    /* 
+    ** Note: Styles the front and back faces of the flip card to occupy the same space, only showing one face at a time thanks to the hidden visibility of the backface.
+    */
+}
+
   
   /* Initially hide the contents of the back */
   .flip-card-back > * {
-    transition: opacity 0.8s;
-    opacity: 0; /* Start with the content fully transparent */
-    /* Delay the opacity transition until the flip is almost done */
-    transition-delay: 0.4s;
-  }
-  
-  .flip-card.do-flip .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
+    transition: opacity 0.8s; /* Animates the opacity change smoothly over 0.8 seconds. */
+    opacity: 0; /* Starts with all content fully transparent, making the back initially invisible. */
+    transition-delay: 0.4s; /* Delays the start of the opacity transition until the flip is nearly complete. */
+    /* 
+    ** Note: Ensures that content on the back of the flip card remains invisible during the initial part of the flip, then fades in smoothly for a dramatic reveal.
+    */
+}
+
+.flip-card.do-flip .flip-card-inner {
+    transform: rotateY(180deg); /* Rotates the inner card around its vertical axis by 180 degrees, completing the flip to show the back. */
+    /* 
+    ** Note: Triggers the flip effect when the 'do-flip' class is added, showcasing a smooth, 3D rotation to reveal the card's back.
+    */
+}
+
   /* Make the back content visible and un-mirrored once the card has flipped */
-  .flip-card.do-flip .flip-card-back > * {
-    opacity: 1;
-    transform: rotateY(180deg); /* Un-mirror the text */
-    transition-delay: 0s; /* Reset the delay so the content shows immediately after the flip */
-  }
-  .flip-card.do-flip .flip-card-front >*{
-    opacity: 1;
-    transform:  rotateY(180deg);
-    transition-delay: 0s;
-  }
+ /* Make the back content visible and un-mirrored once the card has flipped */
+ /* Targets all direct children of the .flip-card-back element within a .flip-card that has the .do-flip class */
+.flip-card.do-flip .flip-card-back > * {
+    opacity: 1; /* Changes the opacity to 1, making the back content fully visible after the flip. */
+    transform: rotateY(180deg); /* Rotates the back content by 180 degrees to un-mirror the text, making it readable. */
+    transition-delay: 0s; /* Resets the delay so the content transition starts immediately after the flip. */
+    /* 
+    ** Note: Ensures the content on the back of the flip card becomes visible and readable as soon as the flip transition completes.
+    */
+}
+.flip-card.do-flip .flip-card-front >*{ 
+    opacity: 1; /* Maintains full opacity, ensuring front content is visible during the flip. */
+    transform: rotateY(180deg); /* Rotates the front content by 180 degrees; typically, you might adjust or remove this to prevent the front from mirroring after a flip. */
+    transition-delay: 0s; /* Ensures no delay in the transformation effect. */
+    /* 
+    ** Note: Adjusts the front content to be coherent with the flip behavior, though typically, you'd want the front to stay stable unless flipping back.
+    */
+}
 
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 200%;
-    text-align: center;
-    font-family: arial;
-  }
-  
-  .card img {
-    margin-top: 10px;
-    width: 350px;
-    height: 350px;
-    border-color: gold;
-    border-radius: 5%;
-  }
-  
-  .price {
-    color: grey;
-    font-size: 22px;
-  }
-  
-  .do-flip {
-    -o-transform: rotateY(-180deg);
-    -webkit-transform: rotateY(-180deg);
-    -ms-transform: rotateY(-180deg);
-    transform: rotateY(-180deg);
-  }
- 
-  .flipButton {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-    opacity: 0.7; /* Consolidated duplicate definitions */
-  }
-  
-  .flip-card-front {
-    background-color: #bbb;
-    color: black;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .flip-card-back {
-    background-color: black;
-    color: white;
-    transform: rotateY(180deg);/*Uncomment this if you want the back to start flipped */
-    border-radius: 12px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  }
- 
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Applies a subtle shadow to elevate the card visually above the page. */
+    max-width: 200%; /* Sets a very large max-width, unusual and may be a mistake or specific design choice. */
+    text-align: center; /* Centers text within the card. */
+    font-family: Arial; /* Sets the font for content within the card to Arial, a widely supported sans-serif font. */
+    /* 
+    ** Note: Provides a basic design framework for a card element, with visual styling focused on clarity and neat presentation.
+    */
+}
 
-  
-  
-  .table-container {
-    max-width: 500px; /* Reduced maximum width of the table */
-    margin: 30px auto; /* Center the table with more vertical space */
-    overflow: auto; /* Enable horizontal scroll for wide tables */
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.card img {
+    margin-top: 10px; /* Adds a small margin above the image to separate it from other content. */
+    width: 350px; /* Sets a fixed width for images to maintain consistency in appearance. */
+    height: 350px; /* Sets a fixed height to match the width, ensuring images are square. */
+    border-color: gold; /* Sets the border color, though missing 'border-style' and 'border-width' to make it visible. */
+    border-radius: 5%; /* Slightly rounds the corners of the image for a softer look. */
+    /* 
+    ** Note: Styles images within the card, focusing on a uniform and attractive presentation with a hint of luxurious coloring via border.
+    */
+}
+
+.price {
+    color: grey; /* Sets the color of the price text to grey, suggesting a subtle, subdued styling. */
+    font-size: 22px; /* Sets a relatively large font size for price, making it prominent. */
+    /* 
+    ** Note: Defines the styling for price information in a card, ensuring it's easily readable and appropriately emphasized.
+    */
+}
+
+.do-flip {
+    -o-transform: rotateY(-180deg); /* Specifies the rotation transform for Opera browsers. */
+    -webkit-transform: rotateY(-180deg); /* Specifies the rotation transform for Webkit browsers like Chrome and Safari. */
+    -ms-transform: rotateY(-180deg); /* Specifies the rotation transform for Internet Explorer. */
+    transform: rotateY(-180deg); /* Specifies the standard rotation transform, flipping the element 180 degrees on the Y-axis. */
+    /* 
+    ** Note: Provides cross-browser support for the flipping transformation, ensuring a consistent flip effect across different platforms.
+    */
+}
+
+ 
+.flipButton {
+    border: none; /* Removes any default border styling from the button. */
+    outline: 0; /* Removes the outline to prevent a focus ring when clicked. */
+    padding: 12px; /* Adds padding to increase the clickable area and comfort. */
+    color: white; /* Sets the text color to white for high contrast. */
+    background-color: #000; /* Sets a solid black background, ensuring the button stands out. */
+    text-align: center; /* Ensures the text inside the button is centered. */
+    cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable. */
+    width: 100%; /* Extends the button width to fill its container. */
+    font-size: 18px; /* Sets a reasonably large font size for clear readability. */
+    opacity: 0.7; /* Sets the opacity to 70%, making the button slightly translucent. */
+    /* 
+    ** Note: Styles a button specifically for initiating the flip effect, with visual and interactive cues to encourage user engagement.
+    */
+}
+
+.flip-card-front {
+    background-color: #bbb; /* Sets a light grey background color, neutral and soft. */
+    color: black; /* Sets text color to black for maximum contrast against the light background. */
+    border-radius: 12px; /* Applies moderate rounding to the corners for a modern, friendly appearance. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a light shadow for depth, enhancing the 3D effect. */
+    /* 
+    ** Note: Styles the front of the flip card with subtle visual enhancements for a polished, professional look.
+    */
+}
+.flip-card-back {
+    background-color: black; /* Sets a dark background, providing a stark contrast to the front. */
+    color: white; /* Ensures text and other elements are highly visible against the dark background. */
+    transform: rotateY(180deg); /* Optionally starts the back flipped, useful if you want it visible initially in an inverted state. */
+    border-radius: 12px; /* Consistently applies border rounding as on the front. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Maintains the shadow effect from the front, keeping style continuity. */
+    /* 
+    ** Note: Gives the back of the flip card a distinct, high-contrast look that complements the front while providing visual and functional consistency.
+    */
+}
+
+ 
+.table-container {
+    max-width: 500px; /* Limits the width of the table container to 500px, which helps in maintaining layout consistency across devices. */
+    margin: 30px auto; /* Vertically spaces the container 30px from other elements, and horizontally centers it within its parent. */
+    overflow: auto; /* Enables scrolling within the table container if the table exceeds the container's width. */
+    border-radius: 12px; /* Rounds the corners of the container to 12px for a softer, modern look. */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow below the container for a slight depth effect. */
+    /* 
+    ** Note: Configures the table container with aesthetic and functional enhancements for better user experience and visual integration.
+    */
 }
 
 table {
-    width: 100%;
-    border-collapse: separate; /* Changed to 'separate' to ensure border-radius applies to individual cells */
-    background-color: #fff;
-    border-radius: 12px;
-    font-size: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to the table for depth */
-    overflow: hidden; /* Ensures child elements (like tr and td) don't overflow the rounded corners */
-    margin: 20px 0; /* Optional: Add some margin for spacing */
+    width: 100%; /* Ensures the table expands to fill its container, utilizing the available space. */
+    border-collapse: separate; /* Enables the use of border-radius on individual cells by not collapsing borders. */
+    background-color: #fff; /* Sets a clean, white background for the table, enhancing content readability. */
+    border-radius: 12px; /* Applies rounding to the table's corners to match the container and maintain the style consistency. */
+    font-size: 16px; /* Sets a standard font size for text within the table for better legibility. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a shadow for a 3D effect, making the table stand out against the background. */
+    overflow: hidden; /* Prevents any child elements from overlapping the table's rounded borders. */
+    margin: 20px 0; /* Adds vertical spacing for aesthetic separation from other page elements. */
+    /* 
+    ** Note: Carefully styles the table to enhance visual clarity and ensure it fits well within its rounded, shadowed container.
+    */
 }
 
 table th, table td {
-    text-align: left;
-    padding: 12px 20px;
-    border-bottom: 2px solid #f1f1f1;
-    color: #555;
+    text-align: left; /* Aligns text to the left for a clean, uniform text presentation. */
+    padding: 12px 20px; /* Adds ample padding inside table cells for text comfort and readability. */
+    border-bottom: 2px solid #f1f1f1; /* Places a light gray border under each cell, helping visually separate table rows. */
+    color: #555; /* Sets the text color to a medium gray for soft, easy-on-eyes viewing. */
+    /* 
+    ** Note: Ensures that table headers and cells are optimally styled for readability and neatness, enhancing data display.
+    */
 }
 
+
 table th {
-    background-color: #f7f7f7;
-    color: #444;
-    letter-spacing: 1px;
-    font-weight: 500;
+    background-color: #f7f7f7; /* Provides a slightly off-white background for header cells, distinguishing them from data cells. */
+    color: #444; /* Darkens the text color in headers for emphasis and hierarchy. */
+    letter-spacing: 1px; /* Slightly spaces out header letters for a touch of styling flair. */
+    font-weight: 500; /* Sets the font weight to medium, highlighting table headers more than normal text. */
+    /* 
+    ** Note: Distinctly styles the table headers to stand out from the data cells, guiding user focus to column descriptions.
+    */
 }
 
 table tr:hover {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* Lightens the row's background on hover, indicating interactivity and aiding row identification. */
+    /* 
+    ** Note: Visually enhances the table's interactivity by subtly highlighting rows under the cursor, aiding data readability.
+    */
 }
 
 table tr:last-child td {
-    border-bottom: none;
+    border-bottom: none; /* Removes the bottom border from the cells in the last row, ensuring a clean and uninterrupted finish to the table. */
+    /* 
+    ** Note: This property is crucial for maintaining the aesthetic integrity of the table, particularly when the table has rounded bottom corners. It prevents the border from cutting through the rounded corner, ensuring a smooth visual transition at the end of the table.
+    */
 }
 
 /* Adjust the border-radius for the bottom corners of the table */
 table tr:last-child td:first-child {
-    border-bottom-left-radius: 12px;
+    border-bottom-left-radius: 12px; /* Applies a 12px radius to the bottom-left corner of the first cell in the last row, rounding it off to match the table's overall design. */
+    /* 
+    ** Note: This setting is part of ensuring that the table's styling is consistent and visually pleasing, by matching the corner radius with that of the table container or any surrounding elements that also feature rounded corners.
+    */
 }
 
 table tr:last-child td:last-child {
-    border-bottom-right-radius: 12px;
+    border-bottom-right-radius: 12px; /* Applies a 12px radius to the bottom-right corner of the last cell in the last row, providing symmetry and a consistent look to the end of the table. */
+    /* 
+    ** Note: By rounding the bottom-right corner, this style complements the left-side rounding, ensuring that the table's visual flow is maintained down to the very last details, enhancing the user interface.
+    */
 }
+
 
 /* Ensure the specific td with id "last-tr" does not have squared corners */
 #last-tr {
-    border-radius: 0; /* Resetting the border-radius */
+    border-radius: 0; /* Overrides any other border-radius settings by resetting it to 0, ensuring that this particular cell does not have rounded corners if not desired. */
+    /* 
+    ** Note: This rule is particularly useful for addressing specific design requirements or exceptions where a certain cell, identified by 'last-tr', needs to have squared corners instead of following the table's general rounded corners style. It allows for precise control over the appearance of individual table cells.
+    */
 }
 
 
 #watch {
-    width: 350px;
-    height: 350px;
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow for depth */
-    margin: 20px auto; /* Centers the iframe horizontally */
+    width: 350px; /* Sets a fixed width of 350 pixels for the watch container, suitable for smaller displays or specific layout needs. */
+    height: 350px; /* Sets a fixed height matching the width to maintain a square shape, which might be unusual for video but could be for a specific design. */
+    border-radius: 12px; /* Applies rounded corners with a 12px radius to soften the container's appearance. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle drop shadow for a 3D effect, enhancing the perceived depth of the container. */
+    margin: 20px auto; /* Sets top and bottom margins to 20px and horizontally centers the container within its parent. */
+    /* 
+    ** Note: The #watch selector styles a container, potentially for a video or other media, giving it a distinct, modern look with rounded corners and shadow while ensuring it is centered appropriately.
+    */
 }
+
 .video-placeholder {
-    position: relative;
-    width: 100%; /* Full width */
-    padding-bottom: 56.25%; /* Aspect ratio for 16:9 */
-    border: 1px solid #aaa;
-    overflow: hidden; /* Hide anything outside of the container */
-    box-sizing: border-box;
+    position: relative; /* Establishes a positioning context for absolutely positioned child elements like iframes. */
+    width: 100%; /* Ensures the placeholder takes the full width of its parent, adapting flexibly to various container sizes. */
+    padding-bottom: 56.25%; /* Sets a bottom padding that maintains a 16:9 aspect ratio, typical for videos, based on the width of the element. */
+    border: 1px solid #aaa; /* Adds a light grey border for subtle definition against possibly varied backgrounds. */
+    overflow: hidden; /* Clips any content that overflows the bounds of the element, essential for maintaining clean edges especially with rounded corners. */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height, ensuring layout dimensions are not disrupted by padding or borders. */
+    /* 
+    ** Note: The .video-placeholder class configures a container for embedding videos, ensuring that it responds dynamically to the surrounding space while preserving the aspect ratio essential for standard video content.
+    */
 }
 
 .video-placeholder iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    position: absolute; /* Positions the iframe at the beginning of its parent container, aligning it perfectly with the placeholder. */
+    top: 0; /* Aligns the top of the iframe with the top of its parent container. */
+    left: 0; /* Aligns the left side of the iframe with the left side of its parent container. */
+    width: 100%; /* Expands the iframe to cover the full width of the placeholder, ensuring no gaps on sides. */
+    height: 100%; /* Expands the iframe to cover the full height of the placeholder, accommodating the padding bottom for aspect ratio. */
+    /* 
+    ** Note: This styling ensures that the iframe, typically used for video embedding, fills its container perfectly, aligning with the setup provided by .video-placeholder to create a seamless visual integration.
+    */
 }
 
-.viewe-count {
-    text-align: center;
-    font-size: 18px;
-    color: #555;
-    margin-top: 10px;
+.viewer-count {
+    text-align: center; /* Centers the text within the element, likely used for displaying viewer count or similar statistics. */
+    font-size: 18px; /* Sets a readable font size for important information, balancing visibility with discretion. */
+    color: #555; /* Applies a medium grey color to the text, providing good readability without overwhelming visual presence. */
+    margin-top: 10px; /* Adds space above the viewer count, separating it visually from content above it. */
+    /* 
+    ** Note: Styles a text element to display viewer statistics or similar data in a clean, focused manner, ensuring it is easily readable and well-integrated into the overall design.
+    */
 }
 
 .live-section {
-    background-color: transparent;
-    width: 500px;
-    height: 400px; /* Adjust as needed */
-    border: 1px transparent;
-    perspective: 1000px;
-    margin: 20px auto;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
-    background-color: #f9f9f9; 
-    padding: 20px;
-    max-width: 80%; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    background-color: transparent; /* Initially sets the background to transparent, possibly a leftover from an earlier style before setting a new background color. */
+    width: 500px; /* Fixes the width of the section to 500 pixels, ensuring consistent sizing across devices. */
+    height: 400px; /* Sets a fixed height of 400 pixels, though this is adjustable based on content needs. */
+    border: 1px transparent; /* Initially sets a transparent border, likely an oversight since it's overridden later. */
+    perspective: 1000px; /* Sets a 1000px perspective for 3D positioned child elements, which can affect 3D transformations. */
+    margin: 20px auto; /* Centers the section horizontally within its container and adds 20px margin top and bottom. */
+    border-radius: 8px; /* Applies 8px rounded corners for a smoother, softer visual appearance. */
+    border: 1px solid #e0e0e0; /* Overrides the initial transparent border with a solid light gray border, providing a subtle outline. */
+    background-color: #f9f9f9; /* Sets a very light gray background color, enhancing readability and visual cleanliness. */
+    padding: 20px; /* Adds 20px padding on all sides within the section, creating space around the content inside. */
+    max-width: 80%; /* Limits the maximum width to 80% of the parent container, allowing some responsiveness to the container's size. */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Adds a light shadow for subtle depth, improving visual hierarchy. */
+    /* 
+    ** Note: The .live-section class styles a container that might typically be used for live video feeds or similar content. It combines fixed dimensions with responsive styling, balanced colors, and soft shadows to create a user-friendly viewing area.
+    */
 }
 
 .video-wrapper {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Adds a 20px margin below the video wrapper, spacing it from subsequent content. */
+    /* 
+    ** Note: This simple styling aids in separating the video area from other elements on the page, improving layout flow and content organization.
+    */
 }
 
 .viewer-wrapper {
-    background-color: #fff; 
-    border-radius: 5px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
+    background-color: #fff; /* Sets the background to white, providing a stark contrast against most other page elements. */
+    border-radius: 5px; /* Rounds the corners with a 5px radius, aligning with modern design aesthetics for softness and approachability. */
+    padding: 10px; /* Provides 10px of padding inside the wrapper, ensuring content within has ample spacing from the edges. */
+    border: 1px solid #ddd; /* Adds a light gray border, giving a defined but unobtrusive edge to the viewer counter. */
+    text-align: center; /* Centers the text within the viewer wrapper, which is commonly used for viewer counts or similar statistics. */
+    /* 
+    ** Note: The .viewer-wrapper class is designed to neatly encapsulate viewer interaction elements like viewer counts, making them visually distinct yet integrated with the overall design. Its style promotes clarity and focus, essential for areas displaying potentially dynamic information.
+    */
 }
 
 #posts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Space between cards */
-    justify-content: center; /* Centering the cards */
-    margin-top: 3%;
-    padding-top: 20px; /* Adjust this value as needed to ensure no overlap with the nav bar */
+    display: flex; /* Establishes a flex container for child elements, allowing them to be laid out linearly. */
+    flex-wrap: wrap; /* Allows items to wrap onto multiple lines, instead of being squeezed onto one line. */
+    gap: 20px; /* Sets the space between each child element (post cards), ensuring they are evenly spaced. */
+    justify-content: center; /* Horizontally centers the child elements within the container. */
+    margin-top: 3%; /* Adds a top margin to the posts container, separating it from elements above, like a navigation bar. */
+    padding-top: 20px; /* Adds padding at the top of the container, providing space between the top of the container and the first row of posts. */
+    /* 
+    ** Note: This setup for the #posts container ensures that it is visually appealing and well-organized. The flex display combined with wrapping and spacing creates a responsive layout that adjusts neatly across different screen sizes.
+    */
 }
 
 .post {
-    border: 1px solid #ccc; /* Border for the card */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
-    padding: 15px; /* Padding inside the card */
-    width: 300px; /* Fixed width, you can adjust this */
-    background-color: #fff; /* Background color for the card */
-    box-sizing: border-box; /* Ensures padding doesn't affect overall width */
-    margin-bottom: 20px; /* Margin at the bottom of each card */
+    border: 1px solid #ccc; /* Adds a subtle grey border around each post card, defining its boundaries without being too intrusive. */
+    border-radius: 8px; /* Applies rounded corners to the post cards, softening their appearance and aligning with modern web aesthetics. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Provides a light shadow beneath each card, adding depth and enhancing the visual hierarchy. */
+    padding: 15px; /* Sets padding inside each card, creating space around the content for better readability. */
+    width: 300px; /* Specifies a fixed width for each card, ensuring uniformity in the presentation of the posts. */
+    background-color: #fff; /* Sets a white background for each card, providing a clean and neutral canvas for the content. */
+    box-sizing: border-box; /* Includes padding and border in the width and height measurements, preventing them from expanding beyond the set dimensions. */
+    margin-bottom: 20px; /* Adds a bottom margin to each card, spacing them out vertically within the container. */
+    /* 
+    ** Note: The .post class styles individual post cards within the #posts container, making them distinct and easily scannable. The fixed width and consistent styling help maintain a neat grid of posts.
+    */
 }
 
 .post h2 {
-    color: #333; /* Color for the title */
-    margin-top: 0; /* Removes the top margin */
+    color: #333; /* Sets the color of the post titles to a dark gray, making them prominent but not overwhelming. */
+    margin-top: 0; /* Eliminates the default top margin, aligning the title closely with the top of the card content. */
+    /* 
+    ** Note: This rule ensures that post titles are visually strong and neatly aligned, maximizing the use of space within each card.
+    */
 }
 
 .post p {
-    color: #666; /* Color for the paragraph text */
-    line-height: 1.5; /* Line height for readability */
-    margin: 10px 0; /* Margin for paragraphs */
+    color: #666; /* Sets the paragraph text color to a lighter gray than the title, distinguishing the hierarchy of text. */
+    line-height: 1.5; /* Increases line height to enhance readability, making the text easier to follow. */
+    margin: 10px 0; /* Sets top and bottom margins for paragraphs to structurally separate text blocks within each post. */
+    /* 
+    ** Note: Paragraph styling within posts is tuned for readability and clear separation, supporting the overall legibility and attractiveness of the content.
+    */
 }
 
-
 .video-wrapper {
-    position: relative;
-    width: 100%; /* This will take the full width of its container */
-    height: 300px; /* This will be overridden by the padding-bottom */
-    overflow: hidden;
-    margin-bottom: 20px; /* Adds space below the video player */
-    border-radius: 8px; /* Rounded corners for the video wrapper */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    border: 1px solid #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative; /* Sets the positioning context for absolutely positioned child elements like iframes or video tags. */
+    width: 100%; /* Ensures the wrapper takes the full width of its parent container, adapting flexibly to different screen sizes. */
+    height: 300px; /* Initially sets a fixed height, but this is meant to be overridden by padding-bottom for aspect ratio control. */
+    overflow: hidden; /* Hides any content that overflows the bounds of the element, important for maintaining clean edges, especially with rounded corners. */
+    margin-bottom: 20px; /* Adds space below the video wrapper, separating it from subsequent content or elements. */
+    border-radius: 8px; /* Applies rounded corners to the video wrapper for a smoother, more aesthetically pleasing appearance. */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow to create a sense of depth, enhancing the visual impact of the video player. */
+    border: 1px solid #000; /* Provides a solid black border around the wrapper, defining its boundaries clearly against possibly varied backgrounds. */
+    display: flex; /* Utilizes flexbox to facilitate the centering of child elements (like a play button or additional overlays). */
+    justify-content: center; /* Horizontally centers content within the video wrapper, useful for aligning child elements like play buttons. */
+    align-items: center; /* Vertically centers content within the video wrapper, ensuring any centered content is perfectly aligned. */
+    /* 
+    ** Note: The .video-wrapper class is designed to provide a responsive, visually appealing container for video content, with adjustments for alignment, spacing, and aesthetic enhancements. It ensures that videos are presented in a consistent and engaging manner across different devices.
+    */
 }
 
 .video-wrapper iframe,
 .video-wrapper video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    border-radius: 8px; /* Rounded corners for the video element */
+    position: absolute; /* Positions the iframe or video tag at the top-left of its parent .video-wrapper, aligning it perfectly within the container. */
+    top: 0; /* Aligns the top edge of the video with the top of the wrapper. */
+    left: 0; /* Aligns the left edge of the video with the left of the wrapper. */
+    width: 100%; /* Expands the video to cover the full width of the wrapper, ensuring no gaps on the sides. */
+    height: 100%; /* Expands the video to cover the full height of the wrapper, accommodating the set dimensions or aspect ratio. */
+    border-radius: 8px; /* Ensures that the video itself also has rounded corners, matching the wrapper and maintaining the design consistency. */
+    /* 
+    ** Note: This selector targets both iframe and video elements within .video-wrapper, applying styles that ensure these elements fill their container fully while adhering to the rounded-corner design. It's crucial for integrating video content seamlessly into the layout, maintaining the aesthetic continuity and functionality.
+    */
 }
 
-#firebaseVideo{
-    
-}
 
+/*use in js*/
 .active-nav-item {
-    font-weight: bold;
-    font-size: larger;
-    color: red;
-    text-decoration: underline;
+    font-weight: bold; /* Makes the font weight bold, highlighting the active navigation item and drawing attention to it. */
+    font-size: larger; /* Increases the font size relative to its default size, making the active item more noticeable. */
+    color: red; /* Sets the text color to red, which is typically used to indicate active or important status. */
+    text-decoration: underline; /* Adds an underline, enhancing the visibility and distinctiveness of the active navigation item. */
+    /* 
+    ** Note: This class is typically toggled on and off by JavaScript based on user interaction or page state to visually denote which navigation item is currently active. It enhances user experience by clearly indicating which section of the site they are viewing.
+    */
 }
 
 #main{
-    width: 60vw;
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 60vw; /* Sets the width of the main container to 60% of the viewport width, allowing it to adjust dynamically to various screen sizes. */
+    min-height: 80vh; /* Ensures that the minimum height of the main container is 80% of the viewport height, providing a substantial visual space for content. */
+    display: flex; /* Utilizes the flexbox layout model to enable flexible and advanced alignment and spacing of child elements. */
+    flex-direction: column; /* Stacks child elements vertically. */
+    justify-content: center; /* Centers child elements vertically within the container, useful for vertical alignment. */
+    align-items: center; /* Centers child elements horizontally within the container, ensuring content is aligned in the middle. */
+    /* 
+    ** Note: The #main selector is configured to effectively manage layout and spacing of central content, making it adaptable and visually balanced across different viewing devices. It is a key structural element for the layout of a page.
+    */
 }
 
 #welcomeHeader{
-    min-width: 700px;
+    min-width: 700px; /* Sets a minimum width for the header to ensure it maintains a readable and visually appealing size regardless of the screen width. */
+    /* 
+    ** Note: This style is important for maintaining the integrity of the site’s branding or introductory content. By ensuring a minimum width, it guarantees that the header's content is not squeezed too tightly, preserving legibility and aesthetic quality.
+    */
 }
+
+
 @media (max-width: 768px){
     #welcomeHeader{
-        min-width: 350px;
+        min-width: 350px; /* Reduces the minimum width of the header to 350px on smaller screens to accommodate tighter screen spaces while maintaining readability. */
     }
-    }
+}
+/* 
+** Note: This adjustment ensures that the header remains functional and visually balanced even on smaller devices, such as tablets or large smartphones, by adapting to the reduced viewport size.
+*/
 
 #intro_image_text_section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 70vh;
-    width: 50%;
-    min-width: 700px;
-    margin: 16px 0 0 0;
+    display: flex; /* Uses flexbox to layout children elements in a linear fashion. */
+    flex-direction: column; /* Stacks child elements vertically. */
+    justify-content: center; /* Centers children vertically within the container. */
+    align-items: center; /* Centers children horizontally, aligning items in the middle of the container. */
+    min-height: 70vh; /* Sets a minimum height for the section as 70% of the viewport height, giving it substantial vertical space. */
+    width: 50%; /* Sets the width of the section to 50% of its container. */
+    min-width: 700px; /* Ensures that the section does not shrink below 700px, maintaining its structural integrity. */
+    margin: 16px 0 0 0; /* Sets the top margin to 16px, and removes margin from other sides. */
+    /* 
+    ** Note: This configuration is ideal for sections that need to prominently display content such as introductory text alongside images, ensuring that elements are centered and visually balanced.
+    */
 }
+
 .intro{
-    display: flex;
-    justify-content: center;
-    min-width: 700px;
-    margin: 0 0 16px 0;
+    display: flex; /* Establishes a flexible container for direct child elements. */
+    justify-content: center; /* Horizontally centers the child elements within the container. */
+    min-width: 700px; /* Prevents the container from becoming too narrow, which ensures content remains legible and aesthetically pleasing. */
+    margin: 0 0 16px 0; /* Adds a bottom margin of 16px to separate it from subsequent content. */
+    /* 
+    ** Note: This class is useful for sections where central alignment of content is crucial, such as introductory areas or feature sections.
+    */
 }
+
 .intro p {
-    margin-right: 0;
-    width: 80%;
-    height: fit-content;
+    margin-right: 0; /* Removes right margin to maintain consistent text alignment and spacing. */
+    width: 80%; /* Limits the paragraph width to 80% of its container, which helps in creating a focused, readable text block. */
+    height: fit-content; /* Sets the height to just enough to fit its content, ensuring no extra space is added beyond what the text requires. */
+    /* 
+    ** Note: Paragraphs styled this way are tailored for readability, with controlled width aiding in maintaining optimal line length for comfortable reading.
+    */
 }
+
 #picOfIndex{
-    left: 0;
-    height: object-fit;
-    width: 100%
-        
+    left: 0; /* Aligns the image container to the left of its parent container. */
+    height: object-fit; /* Ensures that the container's height adjusts to fit the image preserving its aspect ratio. Note: 'object-fit' is not a valid value for height; this might be a mistake or misunderstanding. */
+    width: 100%; /* Sets the width to span the full width of its container, ensuring it occupies all available horizontal space. */
 }
 #picOfIndex img{
-    margin-bottom: 16px;
+    margin-bottom: 16px; /* Adds a bottom margin to the image, providing spacing from any content below it. */
+    /* 
+    ** Note: These styles ensure that images within the #picOfIndex container are displayed prominently, fully utilizing the container's width and with appropriate spacing for visual clarity.
+    */
 }
+
 
 @media (max-width: 1200px) {
+    /* Styles inside this block apply when the viewport width is 1200px or less */
+
   
     #main{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        min-height: 100vh;
+        display: flex; /* Uses the flexbox layout to organize child elements. */
+        justify-content: center; /* Centers child elements horizontally within the main container. */
+        flex-direction: column; /* Stacks child elements vertically instead of horizontally. */
+        min-height: 100vh; /* Ensures the main container takes at least the full height of the viewport, creating a full-page experience regardless of content size. */
+        /* 
+        ** Note: These adjustments ensure that the main layout remains functional and aesthetically pleasing even on smaller or medium-sized screens, improving readability and usability.
+        */
     }
+    
  
     .intro {
-        display: flex;
-        justify-content: center;
-        min-width: 300px;
+        display: flex; /* Continues to use flexbox for layout. */
+        justify-content: center; /* Ensures content within intro sections is centered horizontally. */
+        min-width: 300px; /* Sets a minimum width to ensure that intro elements do not become too narrow, which could harm readability. */
+        /* 
+        ** Note: This configuration is crucial for maintaining the structural and visual integrity of introductory sections on smaller screens.
+        */
     }
+    
     .intro p{
-        margin-right: auto;
-        margin-left: auto;
+        margin-right: auto; /* Automatically adjusts the right margin, helping to center the paragraph text within its container. */
+        margin-left: auto; /* Automatically adjusts the left margin, mirroring the right margin's effect and ensuring the text is well-centered. */
+        /* 
+        ** Note: These margin settings are particularly effective for text alignment in responsive design, ensuring paragraphs within intro sections are optimally positioned regardless of screen size.
+        */
     }
+    
     #picOfIndex{
-        bottom: 0;
-        left: 0;
-        padding: 10px;
-        display: flex;
-        align-self: center;
-        height: auto;
-   }
+        bottom: 0; /* Aligns the image container at the bottom of its parent element. */
+        left: 0; /* Aligns the image container on the left side of its parent element. */
+        padding: 10px; /* Adds padding inside the image container for spacing around its content. */
+        display: flex; /* Uses flexbox to manage the layout of child elements, which is the image in this case. */
+        align-self: center; /* Centers the image container within its flex container parent along the cross axis. */
+        height: auto; /* Sets the height to adjust based on the content, allowing the image to maintain its natural aspect ratio. */
+        /* 
+        ** Note: Adjusts the positioning and layout of image containers to ensure they remain visually appealing and functionally appropriate on smaller screens.
+        */
+    }
+    
     #picOfIndex img{
-        margin-right: auto;
-        margin-left: auto;
-        min-height: 500px;
-        max-height: 70vh;
-        object-position: right;
+        margin-right: auto; /* Centers the image horizontally by automatically adjusting the right margin. */
+        margin-left: auto; /* Centers the image horizontally by automatically adjusting the left margin. */
+        min-height: 500px; /* Ensures the image has a minimum height of 500px, maintaining a significant visual presence. */
+        max-height: 70vh; /* Limits the image height to 70% of the viewport height, preventing it from becoming overly large on smaller screens. */
+        object-position: right; /* Aligns the object (image) within its frame to the right, useful for focusing on specific details of an image when cropped. */
+        /* 
+        ** Note: These image settings ensure that visual content is displayed effectively, with appropriate sizing and positioning to enhance user experience on devices with narrower screens.
+        */
     }
-}
-
-@media (max-width: 768px) {
-    #intro_image_text_section{
-        min-width: 350px;
-    }
-    .intro p{
-        max-width: 80%;
-
-    }
-    #picOfIndex img {
-        min-height: 300px;
-        margin: 0;
-    }
-}
-
-#section_do_space_this_fix{
-    min-width: 1200px;
     
 }
 
-@media (max-width: 1200px){
-   #section_do_space_this_fix{
-        align-self: center;
-        min-width: 700px;
+@media (max-width: 768px) {
+    /* Styles inside this block apply when the viewport width is 768px or less */
+
+    #intro_image_text_section{
+        min-width: 350px; /* Sets a minimum width of 350 pixels for the section, ensuring it does not become too narrow on smaller screens, which could compromise readability and design integrity. */
+        /* 
+        ** Note: This adjustment is crucial for maintaining the structural integrity of content areas that may contain text and images, ensuring they remain legible and visually balanced even on smaller devices.
+        */
     }
-   #contactForm{
-        display: flex;
-        flex-direction: column;
-        max-width: 100%;
-   }
+    
+    .intro p{
+        max-width: 80%; /* Restricts the maximum width of paragraphs to 80% of their containing element. This helps in managing text line length, making it easier to read by preventing lines from becoming too long and unwieldy on smaller screens. */
+        /* 
+        ** Note: Controlling the width of paragraph text is particularly important in responsive design to enhance readability and user comfort. This setting ensures that text remains within an optimal line length across various devices.
+        */
+    }
+    
+    #picOfIndex img {
+        min-height: 300px; /* Ensures that images do not shrink below 300 pixels in height, maintaining a sufficient visual impact and preserving the aspect ratio of images, especially important for graphical content like photos and illustrations. */
+        margin: 0; /* Eliminates any margin around the image, which can help in aligning images more closely with other page elements or maximizing the use of limited screen space. */
+        /* 
+        ** Note: These styles ensure that images remain functional and visually appealing without taking unnecessary space or becoming too small to be effective. The removal of margin aids in creating a more compact layout suitable for smaller screens.
+        */
+    }
+    
 }
 
-@media (max-width: 768px){
+#section_do_space_this_fix{
+    min-width: 1200px; /* Ensures that this section does not become narrower than 1200 pixels, regardless of the screen or parent container size. */
+}
+
+
+@media (max-width: 1200px){
+    /* Styles defined here are applied when the viewport width is 1200px or less */
     #section_do_space_this_fix{
-        min-width: 300px;
+        align-self: center; /* Centers this element within its flex container, which is useful if its parent is styled with 'display: flex'. This property helps maintain the aesthetic alignment of the section, especially when the viewport is narrower. */
+        min-width: 700px; /* Reduces the minimum width from 1200px to 700px. This adjustment makes the section more responsive, ensuring it still holds its structure without overflowing the viewport on smaller devices. */
+        /* 
+        ** Note: These adjustments make the section more adaptable to varying screen sizes, ensuring it remains visually balanced and functionally effective without being too wide for the available screen space.
+        */
     }
+    
+    
+    #contactForm{
+        display: flex; /* Changes the layout of the form to a flexible box model, which allows its children (like form fields and buttons) to be organized in a more adaptable and responsive manner. */
+        flex-direction: column; /* Stacks the child elements (such as input fields and buttons) vertically. This is particularly effective for forms on mobile devices where horizontal space is limited, making the form easier to use and navigate. */
+        max-width: 100%; /* Ensures the form does not exceed the width of its container, allowing it to adjust to the full width of the section it resides in. This maximizes the use of available space, especially on smaller screens. */
+        /* 
+        ** Note: These styles reconfigure the contact form to be more user-friendly on smaller devices by using a flexible layout that adapts to screen width, enhancing the user interface and experience.
+        */
+    }
+    
+}
+
+
+
+@media (max-width: 768px){
+    /* Styles defined here apply to viewports that are 768 pixels wide or less. */
+    #section_do_space_this_fix{
+        min-width: 300px; /* Sets a minimum width of 300 pixels for the section. This ensures that the section does not become too narrow, which can be important for maintaining readability and the structural integrity of the content, especially in responsive design contexts where screen space is limited. */
+        /* 
+        ** Note: Adjusting the minimum width to 300px for smaller screens helps prevent the content from being squished too tightly, which could hinder user interaction and readability. This size is more appropriate for devices like mobile phones where screen real estate is at a premium.
+        */
+    }
+    
     .section{
-        flex-direction: column;
+        flex-direction: column; /* Changes the flex direction to column. This stacks child elements vertically instead of laying them out horizontally. */
+        /* 
+        ** Note: Switching to a column layout is particularly beneficial on smaller screens where horizontal space is limited. It simplifies the structure, making it easier for users to scroll through content vertically without the need to navigate side-to-side. This adjustment enhances the usability and accessibility of the site on mobile devices.
+        */
     }
+    
 }
