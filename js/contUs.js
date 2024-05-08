@@ -1,3 +1,4 @@
+var errorMessage;
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -10,7 +11,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     var additionalInfo = document.getElementById('additionalInfo').value;
 
     // Initialize errorMessage
-    var errorMessage = document.getElementById('error');
+     errorMessage = document.getElementById('error');
 
     // Create a string representation of the current form data
     var currentQuery = JSON.stringify({ name, phone, email, gender, subscribe, additionalInfo });
@@ -23,6 +24,8 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     if (localStorage.getItem('lastQuery') === currentQuery) {
         validationCode =8;
     }
+
+
 
     console.log(validationCode)
 
@@ -37,47 +40,51 @@ document.getElementById('contactForm').addEventListener('submit', function(event
                 ref.push(data, function(error) {
                     if (error) {
                         console.log('Data could not be saved. ' + error);
-                        errorMessage.textContent = "An error occurred: " + error;
+                        updateErrorMessage("An error occurred: " + error);
                     } else {
                         console.log('Data saved successfully.');
-                        errorMessage.textContent = "Your query has been submitted successfully.";
-                        errorMessage.style.color = 'green';
+                        updateErrorMessage("Your query has been submitted successfully.", false);
                         localStorage.setItem('lastQuery', currentQuery); // Store the current query
                     }
                 });
             break;
             case 1:
-                errorMessage.textContent = "Name field is empty";
+                updateErrorMessage("Name field is empty");
                 break;
             case 2:
-                errorMessage.textContent = "Invalid name format (only letters allowed)";
+                updateErrorMessage("Invalid name format (only letters allowed)");
                 break;
             case 3:
-                errorMessage.textContent = "Phone field is empty";
+                updateErrorMessage("Phone field is empty");
                 break;
             case 4:
-                errorMessage.textContent = "Invalid phone format";
+                updateErrorMessage("Invalid phone format");
                 break;
             case 5:
-                errorMessage.textContent = "Email field is empty";
+                updateErrorMessage("Email field is empty");
                 break;
             case 6:
-                errorMessage.textContent = "Invalid email format";
+                updateErrorMessage("Invalid email format");
                 break;
             case 7:
-                errorMessage.textContent = "Gender selection is required";
+                updateErrorMessage("Gender selection is required");
                 break;
             case 8:
-                errorMessage.textContent = "Please change your query before resubmitting.";
+                updateErrorMessage("Please change your query before resubmitting.");
                 break;
             default:
-                errorMessage.textContent = "An unknown error occurred";
+                updateErrorMessage("An unknown error occurred");
                 break;
         }
     });
     
 
 
+    function updateErrorMessage(message, isError = true) {
+        errorMessage.textContent = message;
+        errorMessage.style.color = isError ? 'red' : 'green';
+    }
+    
     function enableSubmitOnChange() {
         var formElements = document.querySelectorAll('#contactForm input, #contactForm select, #contactForm textarea');
         formElements.forEach(function(element) {
@@ -91,8 +98,11 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     enableSubmitOnChange();
     
 
+
+    
 function getFullPhoneNumber() {
     var countryCode = document.getElementById('countryCode').value;
     var phoneNumber = document.getElementById('phone').value;
     return countryCode + " " + phoneNumber;
 }
+
