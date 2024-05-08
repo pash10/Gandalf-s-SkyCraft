@@ -41,6 +41,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
                     } else {
                         console.log('Data saved successfully.');
                         errorMessage.textContent = "Your query has been submitted successfully.";
+                        errorMessage.style.color = 'green';
                         localStorage.setItem('lastQuery', currentQuery); // Store the current query
                     }
                 });
